@@ -25,7 +25,6 @@ body {
     background-size: 50px 50px; /* Match image size for tiling */
     background-repeat: repeat;
     background-position: 0 0, 320px 320px; /*Staggering.  Half the background size*/
-    animation: shimmer 3s linear infinite;
     pointer-events: none;
 }
 

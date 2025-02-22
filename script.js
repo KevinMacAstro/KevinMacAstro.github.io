@@ -1,11 +1,10 @@
 window.addEventListener('scroll', function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    let speed = 0.5; // Adjust scrolling speed
     let asterism = document.querySelector('.asterism');
+    let maxBrightness = 1.2; // Maximum brightness level
+    let minBrightness = 1;   // Minimum brightness level
+    let scrollHeight = document.body.scrollHeight - window.innerHeight; //added to scale the brightness
+    let brightness = minBrightness + (maxBrightness - minBrightness) * (scrollTop / scrollHeight);
 
-    // Calculate the asterism's vertical position with parallax effect
-    let yPosition = -scrollTop * speed; // Negative for upward movement
-
-    // Apply the transformation to background-position
-    asterism.style.backgroundPositionY = `${yPosition}px`;
+    asterism.style.filter = `brightness(${brightness})`;
 });
