@@ -13,6 +13,7 @@ body {
     height: 100%;
     background-color: #111; /* Matte black */
     z-index: -2; /* Ensure it's behind everything */
+    background-attachment: fixed;
 }
 
 .asterism {
