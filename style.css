@@ -4,7 +4,6 @@ body {
 }
 
 .background {
-/*position: fixed;*/
   top: 0;
   left: 0;
   width: 100%;
@@ -13,6 +12,22 @@ body {
   z-index: -1;
   overflow: hidden;
   background-attachment: fixed;
+  background-size: cover; /*This fills the background*/
+  background-repeat: repeat; /*This makes the background image repeat*/
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('asterism.png');
+  background-size: 100px 100px; /* Adjust size for spacing */
+  background-repeat: repeat;
+  background-position: 50px 25px;
+  z-index: -2;
 }
 
 .glossy-shape {
@@ -26,19 +41,6 @@ body {
     animation: shimmer 5s linear infinite;
 }
 
-.background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('asterism.png');
-    background-size: 500px 500px; /* Increased size for spacing */
-    background-repeat: repeat;
-    background-position: 500px 100px; /* Adjust for staggering */
-    z-index: -2;
-}
 
 @keyframes shimmer {
   0% {
