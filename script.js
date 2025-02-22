@@ -5,5 +5,7 @@ window.addEventListener('scroll', function() {
 
     // Calculate the asterism's vertical position with parallax effect
     let yPosition = -scrollTop * speed; // Negative for upward movement
-    asterism.style.transform = `translateY(${yPosition}px)`;
+
+    // Apply the transformation to background-position
+    asterism.style.backgroundPositionY = `${yPosition}px`;
 });
