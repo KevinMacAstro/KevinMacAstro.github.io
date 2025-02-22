@@ -1,12 +1,9 @@
-
 body {
     margin: 0;
     overflow-x: hidden;
-    color: white; /* White text */
+    color: white;
     font-family: sans-serif;
 }
-
-
 
 .background {
   position: absolute;
@@ -17,6 +14,7 @@ body {
   background-color: #111; /* Matte black background */
   z-index: -1;
   overflow: hidden;
+  animation: shimmer 5s linear infinite; /* Animation applied to background */
 }
 
 .background::before {
@@ -27,31 +25,29 @@ body {
   width: 100%;
   height: 100%;
   background-image: url('asterism.png');
-  background-size: 100px 100px; /* Adjust spacing */
+  background-size: 100px 100px; 
   background-repeat: repeat;
-  /* Staggering:  This creates a staggered pattern*/
-  background-position: 0 0, 100px 100px; /* Adjust the offsets for different staggering patterns*/
-  z-index: -1;
-  animation: shimmer 5s linear infinite;
-} 
-
+  background-position: 0 0, 50px 50px; 
+  z-index: -2;
+}
 
 @keyframes shimmer {
   0% {
     transform: translateX(0);
     opacity: 0.4;
+    filter: brightness(1);
   }
   50% {
     opacity: 0.8;
+    filter: brightness(1.2); 
   }
   100% {
-    transform: translateX(calc(100% + 50px));
+    transform: translateX(calc(-100% - 50px)); /*Animation moves in opposite direction*/
     opacity: 0.4;
+    filter: brightness(1);
   }
 }
-
 
 .content {
   padding: 20px;
 }
-
