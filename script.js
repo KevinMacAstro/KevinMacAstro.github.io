@@ -1,5 +1,5 @@
 window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let speed = 0.4; // Adjust scrolling speed - Increased for better visual effect
     let asterism = document.querySelector('.asterism');
     let maxBrightness = 3.5; // Maximum brightness level
@@ -11,7 +11,6 @@ window.addEventListener('scroll', function() {
     asterism.style.backgroundPositionY = `${yPosition}px`;
     asterism.style.filter = `brightness(${brightness})`;
 });
-
 
 
 window.addEventListener('load', function() {
