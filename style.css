@@ -12,39 +12,61 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #111; /* Matte black */
-    z-index: -2; 
+    z-index: -2;
     background-attachment: fixed;
 }
 
 .asterism {
-    position: fixed; /* Changed to fixed */
+    position: fixed;
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background-image: url('asterism.png');
-    background-size: 50px 50px; /* Match image size for tiling */
+    background-image: url('asterism_tile.png');
+    background-size: 170px 170px;
     background-repeat: repeat;
-    background-position: 0px 0px, 25px 25px; /*Staggering.  Half the background size*/
+    /* Staggering - Adjust these values for different looks */
+    background-position: 0px 0px, 85px 85px; 
     pointer-events: none;
+    /* Glossy effect techniques */
+    mix-blend-mode: overlay; /* Experiment with other modes like 'soft-light' */
+    filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.3)); /* Subtle white drop shadow */
 }
 
-@keyframes shimmer {
-    0% {
-        opacity: 0.5;
-        filter: brightness(1);
-    }
-    50% {
-        opacity: 0.9;
-        filter: brightness(1.2);
-    }
-    100% {
-        opacity: 0.5;
-        filter: brightness(1);
-    }
+
+.content-container {
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0; /* Important: Remove any margins from the container*/
+    padding: 0; /* Important: Remove any padding from the container */
+    box-sizing: border-box; /* Ensure padding and border are included in element dimensions */
 }
 
-.content {
-    padding: 20px;
-    z-index: 1; 
+.border-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /*This line is important!*/
+    border: 2px solid cyan;
+    border-radius: 10px;
+    pointer-events: none;
+    margin: 20px; /*This will create the inset. No need for Javascript here*/
+    box-sizing: border-box; /*Ensure margin is included in element dimensions */
 }
 
+
+.center-image {
+    max-width: 100%; /* Prevent image from overflowing container */
+    max-height: 100%; /* Prevent image from overflowing container */
+}
+
+.center-text {
+    color: white;
+    margin-top: 20px; /* Adjust as needed for spacing */
+    text-align: center;
+    font-size: 1.em; /* Adjust as needed for text size */
+}
