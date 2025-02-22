@@ -22,9 +22,9 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url('asterism.png');
-    background-size: 1280px 1280px; /* Match image size for tiling */
+    background-size: 50px 50px; /* Match image size for tiling */
     background-repeat: repeat;
-    background-position: 0 0, 640px 640px; /*Staggering.  Half the background size*/
+    background-position: 0 0, 25px 25px; /*Staggering.  Half the background size*/
     pointer-events: none;
 }
 
