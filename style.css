@@ -24,7 +24,7 @@ body {
     background-image: url('asterism.png');
     background-size: 300px 300px; /* Adjust spacing */
     background-repeat: repeat; /*This is important. This makes it repeat*/
-    background-position: 0 0, 50px 50px; /*Staggering*/
+    background-position: 0 0, 150px 150px; /*Staggering*/
     animation: shimmer 3s linear infinite; 
     pointer-events: none;
 }
