@@ -19,8 +19,8 @@ body {
 .asterism {
     position: fixed; /* Changed to fixed */
     z-index: -1;
-    width: 100vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
     background-image: url('asterism.png');
     background-size: 50px 50px; /* Match image size for tiling */
     background-repeat: repeat;
