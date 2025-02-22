@@ -68,5 +68,5 @@ body {
     color: white;
     margin-top: 20px; /* Adjust as needed for spacing */
     text-align: center;
-    font-size: 1.em; /* Adjust as needed for text size */
+    font-size: 1.0em; /* Adjust as needed for text size */
 }
