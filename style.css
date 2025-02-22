@@ -19,11 +19,12 @@ body {
 .asterism {
     position: fixed;
     z-index: -1;
-    width: 100px; /* Adjust size */
-    height: 100px; /* Adjust size */
+    width: 100%; /* Adjust size */
+    height: 100%; /* Adjust size */
     background-image: url('asterism.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    background-position: 0 0, 50px 50px;
     animation: shimmer 3s linear infinite; /* Shimmer animation */
     pointer-events: none; /* Prevent clicks on the asterism */
 }
