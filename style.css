@@ -21,8 +21,8 @@ body {
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background-image: url('asterism_tile.png');
-    background-size: 170px 170px;
+    background-image: url('asterism_tile2.png');
+    background-size: 230px 230px;
     background-repeat: repeat;
     /* Staggering - Adjust these values for different looks */
     background-position: 0px 0px, 85px 85px; 
