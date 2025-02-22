@@ -7,16 +7,19 @@ body {
 }
 
 .background {
+  position: absolute; /* Changed to absolute */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* Use vw for viewport width */
+  height: 100vh; /* Use vh for viewport height */
   background-color: #111; /* Matte black background */
   z-index: -1;
   overflow: hidden;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: repeat;
+  background-image: url('asterism.png'), repeating-linear-gradient(to right, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px); /* Combined background images */
+  background-size: 100px 100px, cover; /* Set size for both images */
+  background-position: 50px 25px, center center; /*Stagger and center*/
+  background-repeat: repeat, no-repeat; /* repeat the asterism and don't repeat the background color*/
+
 }
 
 .background::before {
