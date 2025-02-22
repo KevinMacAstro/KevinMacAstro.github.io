@@ -1,0 +1,58 @@
+body {
+    margin: 0; /*Remove default body margins*/
+    overflow-x: hidden; /*Prevent horizontal scroll*/
+}
+
+.background {
+  position: fixed; /*Keep background fixed while scrolling*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0; /*Matte background color*/
+  z-index: -1; /*Place background behind content*/
+  overflow: hidden;
+}
+
+
+.glossy-shape {
+    position: absolute;
+    width: 50px; /* Adjust size */
+    height: 50px; /* Adjust size */
+    background-color: rgba(255, 255, 255, 0.3); /* Glossy color (adjust opacity)*/
+    border-radius: 50%; /*Make it a circle*/
+    /* Add a subtle shadow for a more glossy effect */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: shimmer 5s linear infinite; /* Animation (details below) */
+}
+/*Tile the glossy shapes*/
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(to right, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+  z-index: -2;
+}
+/*Animation: shimmer effect*/
+@keyframes shimmer {
+  0% {
+    transform: translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(calc(100% + 50px)); /*Move off screen*/
+    opacity: 0.3;
+  }
+}
+
+.content{
+  padding: 20px; /* Add padding around content */
+}
+
+
