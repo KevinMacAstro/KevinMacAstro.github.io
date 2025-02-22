@@ -24,7 +24,7 @@ body {
     background-image: url('asterism.png');
     background-size: 50px 50px; /* Match image size for tiling */
     background-repeat: repeat;
-    background-position: 250px 250px, 150px 150px; /*Staggering.  Half the background size*/
+    background-position: 150px 150px, 25px 250px; /*Staggering.  Half the background size*/
     pointer-events: none;
 }
 
