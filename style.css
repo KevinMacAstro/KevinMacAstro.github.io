@@ -26,7 +26,6 @@ body {
     background-repeat: repeat;
     /* Staggering - Adjust these values for different looks */
     background-position: 0px 0px, 85px 85px; 
-    pointer-events: none;
     /* Glossy effect techniques */
     mix-blend-mode: overlay; /* Experiment with other modes like 'soft-light' */
     filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.3)); /* Subtle white drop shadow */
@@ -68,5 +67,10 @@ body {
     color: white;
     margin-top: 20px; /* Adjust as needed for spacing */
     text-align: center;
-    font-size: 1.0em; /* Adjust as needed for text size */
+    font-size: 1.0em; /* Adjust asneeded for text size */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
