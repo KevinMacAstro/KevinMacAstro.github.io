@@ -22,7 +22,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url('asterism.png');
-    background-size: 640px 640px; /* Match image size for tiling */
+    background-size: 50px 50px; /* Match image size for tiling */
     background-repeat: repeat;
     background-position: 0 0, 320px 320px; /*Staggering.  Half the background size*/
     animation: shimmer 3s linear infinite;
