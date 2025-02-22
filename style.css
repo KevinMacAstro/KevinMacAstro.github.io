@@ -9,8 +9,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: #111; /* Matte black */
     z-index: -2; 
     background-attachment: fixed;
@@ -19,8 +19,8 @@ body {
 .asterism {
     position: fixed; /* Changed to fixed */
     z-index: -1;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url('asterism.png');
     background-size: 640px 640px; /* Match image size for tiling */
     background-repeat: repeat;
