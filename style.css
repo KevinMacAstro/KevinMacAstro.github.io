@@ -19,14 +19,14 @@ body {
 .asterism {
     position: fixed;
     z-index: -1;
-    width: 100%; /* Adjust size */
-    height: 100%; /* Adjust size */
+    width: 100%; 
+    height: 100%; 
     background-image: url('asterism.png');
-    background-size: 100px 100px;
-    background-repeat: repeat;
-    background-position: 0 0, 50px 50px;
-    animation: shimmer 3s linear infinite; /* Shimmer animation */
-    pointer-events: none; /* Prevent clicks on the asterism */
+    background-size: 100px 100px; /* Adjust spacing */
+    background-repeat: repeat; /*This is important. This makes it repeat*/
+    background-position: 0 0, 50px 50px; /*Staggering*/
+    animation: shimmer 3s linear infinite; 
+    pointer-events: none;
 }
 
 @keyframes shimmer {
