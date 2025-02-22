@@ -16,11 +16,11 @@ body {
 
 .glossy-shape {
     position: absolute;
-    width: 50px; /* Adjust size */
-    height: 50px;
+    width: 10px; /* Adjust size */
+    height: 10px;
     background-color: rgba(0, 0, 0, 1.0); /* Glossy black (adjust opacity) */
     border-radius: 50%; /* Circle */
-    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2); /* White shadow for gloss */
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4); /* White shadow for gloss */
     animation: shimmer 5s linear infinite;
 }
 
