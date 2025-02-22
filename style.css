@@ -30,7 +30,7 @@ body {
   background-size: 100px 100px; /* Adjust spacing */
   background-repeat: repeat;
   /* Staggering:  This creates a staggered pattern*/
-  background-position: 0 0, 50px 50px; /* Adjust the offsets for different staggering patterns*/
+  background-position: 0 0, 100px 100px; /* Adjust the offsets for different staggering patterns*/
   z-index: -1;
   animation: shimmer 5s linear infinite;
 } 
