@@ -19,10 +19,10 @@ body {
 .asterism {
     position: fixed;
     z-index: -1;
-    width: 100%; 
-    height: 100%; 
+    width: 100px; 
+    height: 100px; 
     background-image: url('asterism.png');
-    background-size: 100px 100px; /* Adjust spacing */
+    background-size: 300px 300px; /* Adjust spacing */
     background-repeat: repeat; /*This is important. This makes it repeat*/
     background-position: 0 0, 50px 50px; /*Staggering*/
     animation: shimmer 3s linear infinite; 
