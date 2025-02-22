@@ -5,7 +5,7 @@ window.addEventListener('scroll', function() {
 
     // Calculate the asterism's vertical position with parallax effect
     let yPosition = scrollTop * speed;
-    asterism.style.top = `${yPosition}px`;
+    asterism.style.top = `-${yPosition}px`;
 
     //Ensure that it doesn't go off the top of the screen.
     if (yPosition < 0) {
