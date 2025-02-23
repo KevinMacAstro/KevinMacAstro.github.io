@@ -50,7 +50,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0; /*This line is important!*/
-    border: 2px solid cyan;
+    border: 2px solid rgba(0,241,255,255);
     border-radius: 10px;
     pointer-events: none;
     margin: 20px; /*This will create the inset. No need for Javascript here*/
