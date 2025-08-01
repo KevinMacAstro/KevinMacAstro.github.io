@@ -33,20 +33,23 @@ body, html {
     background-attachment: fixed;
 }
 
+/* Glossy asterism tiles overlaid */
 .asterism {
-    position: fixed;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('asterism_tile3.png');
-    background-size: 230px 230px;
-    background-repeat: repeat;
-    /* Staggering - Adjust these values for different looks */
-    background-position: 0px 0px, 85px 85px; 
-    /* Glossy effect techniques */
-    mix-blend-mode: overlay; /* Experiment with other modes like 'soft-light' */
-    filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.3)); /* Subtle white drop shadow */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('asterism_tile3.png');
+  background-repeat: repeat;
+  background-size: 230px 230px;
+  background-position: 0 0;
+  background-attachment: fixed; /* Makes it scroll with the page */
+  mix-blend-mode: overlay; /* Adds gloss-like interaction */
+  filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.15)); /* Subtle highlight */
+  z-index: -1;
 }
+
 
 
 .content-container {
