@@ -4,16 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('scroll', function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    let speed = 0.4;
-    let maxBrightness = 1.2;
-    let minBrightness = 0.5;
+    let maxBrightness = 3.2;
+    let minBrightness = 0.8;
     let scrollHeight = document.body.scrollHeight - window.innerHeight;
 
-    let brightness = minBrightness + (maxBrightness - minBrightness) * (0.5 * (1 + Math.sin((scrollTop / scrollHeight) * 2 * Math.PI)));
-    let yPosition = -scrollTop * speed;
+    let brightness = minBrightness + (maxBrightness - minBrightness) *
+      (0.5 * (1 + Math.sin((scrollTop / scrollHeight) * 2 * Math.PI)));
 
-    asterism.style.backgroundPositionY = `${yPosition}px`;
     asterism.style.filter = `brightness(${brightness})`;
+    // background-attachment: fixed handles position
   });
 
   const contentContainer = document.querySelector('.content-container');
