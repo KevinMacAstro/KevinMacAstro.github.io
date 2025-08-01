@@ -7,6 +7,21 @@ body, html {
     color: white;
 }
 
+.chat-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-image img {
+    margin-bottom: 10px;
+}
+
+.center-image {
+    margin-top: -60px; /* Moves the whole block up */
+}
+
 .background {
     position: fixed;
     top: 0;
