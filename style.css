@@ -38,7 +38,7 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('asterism_tile3.png');
+  background-image: url('asterism_tile2.png');
   background-repeat: repeat;
   background-size: 230px 230px;
   background-position: 0 0;
@@ -47,7 +47,6 @@ body, html {
   filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.15)); /* Subtle highlight */
   z-index: -1;
 }
-
 
 
 .content-container {
