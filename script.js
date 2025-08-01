@@ -4,21 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('scroll', function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    let maxBrightness = 3.2;
-    let minBrightness = 0.8;
+    let speed = 0.2; // Reduced for more natural motion
+    let maxBrightness = 1.2;
+    let minBrightness = 0.5;
     let scrollHeight = document.body.scrollHeight - window.innerHeight;
 
-    let brightness = minBrightness + (maxBrightness - minBrightness) *
-      (0.5 * (1 + Math.sin((scrollTop / scrollHeight) * 2 * Math.PI)));
+    let brightness = minBrightness + (maxBrightness - minBrightness) * (0.5 * (1 + Math.sin((scrollTop / scrollHeight) * 2 * Math.PI)));
+    let yPosition = scrollTop * speed;
 
+    asterism.style.backgroundPositionY = `${yPosition}px`;
     asterism.style.filter = `brightness(${brightness})`;
-    // background-attachment: fixed handles position
   });
-
-  const contentContainer = document.querySelector('.content-container');
-  contentContainer.style.display = 'flex';
-  contentContainer.style.justifyContent = 'center';
-  contentContainer.style.alignItems = 'center';
 });
 
 
