@@ -56,7 +56,7 @@ body, html {
   background-size: 230px 230px;
 
   /* Stagger the second layer by half a tile horizontally and vertically */
-  background-position: 0 0, 115px 0px;
+  background-position: 0 0, 0px 115px;
 
   background-attachment: scroll;
   mix-blend-mode: overlay;
