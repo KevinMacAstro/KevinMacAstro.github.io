@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Kevin Spencer McCarthy</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="/asterism.png">
-<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Kevin Spencer McCarthy</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/asterism.png" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-    <div class="background"></div>
-    <div class="asterism"></div>
-    <div class="border-line"></div>
+  <div class="background"></div>
+  <div class="asterism"></div>
+  <div class="border-line"></div>
 
-      <div class="content-container">
-        <div class="center-image">
-          <a href="https://db.ipmu.jp/member/personal/7718en.html">
-            <img src="KSM_fontTITLE.png" alt="Center Image">
-          </a>
-            <p class="center-text">Site under construction...</p>
+  <div class="content-container">
+    <div class="center-image">
+      <a href="https://db.ipmu.jp/member/personal/7718en.html">
+        <img src="KSM_fontTITLE.png" alt="Center Image" />
+      </a>
+      <p class="center-text">Site under construction...</p>
 
+   
+      <form id="chat-form" autocomplete="off">
+        <label for="user-input" class="visually-hidden">Ask something about my research:</label>
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me about my research..."
+          required
+        />
+        <button type="submit">Send</button>
+      </form>
 
-       <form id="chat-form">
-         <input type="text" id="user-input" placeholder="Ask me about my research..." required />
-         <button type="submit">Send</button>
-       </form>
-       
-       <div id="chat-output" class="chat-box"></div>
-
-
-        </div>
+    
+      <div id="chat-output" class="chat-box"></div>
     </div>
+  </div>
 
-  <script src="script.js"></script> 
+  <script src="script.js"></script>
 </body>
 </html>
-
-
