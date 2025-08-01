@@ -143,7 +143,6 @@ body, html {
     white-space: pre-wrap;
     overflow-y: auto;
     max-height: 300px;
-    margin: 0 auto; 
 }
 
 #chat-output {
@@ -151,7 +150,6 @@ body, html {
   margin-top: 20px;
   padding: 10px;
   align-items: center;
-  margin: 0 auto;
   width: 100%;
   max-width: 600px;
   border: 2px solid rgba(0, 241, 255, 1);
