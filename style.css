@@ -8,12 +8,6 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
-.chat-wrapper {
-    margin-top: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .background {
     position: fixed;
@@ -161,6 +155,14 @@ body, html {
   white-space: pre-wrap;
 }
 
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  gap: 10px;
+}
 
 a {
     text-decoration: none;
