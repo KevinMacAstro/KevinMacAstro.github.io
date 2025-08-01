@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } catch (error) {
             console.error("Error communicating with backend:", error);
-            chat.innerHTML += `<div class="bot"><strong>Bot:</strong> Sorry, something went wrong.</div>`;
+            chat.innerHTML += `<div class="bot"><strong>Research Assistant:</strong> Sorry, something went wrong.</div>`;
         }
     });
 });
