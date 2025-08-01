@@ -75,62 +75,64 @@ body {
     font-size: 1.0em; /* Adjust asneeded for text size */
 }
 
-/* 💬 Chat container styling */
-#chat-form {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+
+/* Accent Variables */
+:root {
+    --accent-color: rgba(0, 241, 255, 1);
+    --accent-glow: rgba(0, 241, 255, 0.5);
+    --accent-bg-hover: rgba(0, 241, 255, 0.3);
+    --accent-bg-button: rgba(0, 241, 255, 0.2);
 }
 
+/* Chat Input */
 #user-input {
-  width: 300px;               /* Wider input box */
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 241, 255, 0.8);
-  background-color: #111;
-  color: white;
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    outline: none;
+    background-color: black;
+    color: white;
+    width: 350px;
+    font-size: 1rem;
+    box-shadow: 0 0 8px var(--accent-glow);
 }
 
 #user-input::placeholder {
-  color: #888;
+    color: rgba(200, 255, 255, 0.6);
 }
 
+/* Chat Button */
 #chat-form button {
-  padding: 10px 16px;
-  font-size: 16px;
-  background-color: rgba(0, 241, 255, 0.2);
-  border: 1px solid rgba(0, 241, 255, 0.8);
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: var(--accent-bg-button);
+    border: 1px solid var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0 0 8px var(--accent-glow);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #chat-form button:hover {
-  background-color: rgba(0, 241, 255, 0.3);
+    background-color: var(--accent-bg-hover);
 }
 
-/* 🧠 Chat box container */
+/* Chat Box */
 .chat-box {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 2px solid rgba(0, 241, 255, 1);  /* Matches outer border */
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-family: monospace;
-  white-space: pre-wrap;
-  overflow-y: auto;
-  max-height: 300px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 300px;
 }
-
-/* Optional: space between messages */
-.chat-box p {
-  margin: 8px 0;
-}
-
 
 
 a {
