@@ -152,7 +152,7 @@ body, html {
 }
 
 #chat-output {
-  display: none;
+  display: none; /* Hide until content exists */
   margin-top: 20px;
   padding: 10px;
   width: 100%;
