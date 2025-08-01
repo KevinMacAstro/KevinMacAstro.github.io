@@ -25,7 +25,7 @@ body, html {
 }
 
 /* Glossy asterism tiles overlaid */
-.asterism {
+.asterismOG {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,6 +38,29 @@ body, html {
   background-attachment: fixed; /* Makes it scroll with the page */
   mix-blend-mode: overlay; /* Adds gloss-like interaction */
   filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.15)); /* Subtle highlight */
+  z-index: -1;
+}
+
+.asterism {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: 
+    url('asterism_tile2.png'),
+    url('asterism_tile2.png');  /* Use two layers */
+
+  background-repeat: repeat;
+  background-size: 230px 230px;
+
+  /* Stagger the second layer by half a tile horizontally and vertically */
+  background-position: 0 0, 115px 115px;
+
+  background-attachment: scroll;
+  mix-blend-mode: overlay;
+  filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.15));
   z-index: -1;
 }
 
