@@ -4,6 +4,8 @@ body, html {
     height: 100%;
     font-family: 'Helvetica', sans-serif;
     color: white;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .chat-wrapper {
@@ -119,6 +121,7 @@ body, html {
 
 /* Chat Input */
 #user-input {
+    font-size: 16px;
     padding: 10px;
     border: 2px solid var(--accent-color);
     border-radius: 8px;
