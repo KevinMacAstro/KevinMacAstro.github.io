@@ -16,11 +16,9 @@ body, html {
 
 .center-image img {
     margin-bottom: 10px;
+    margin-top: -60px;
 }
 
-.center-image {
-    margin-top: -60px; /* Moves the whole block up */
-}
 
 .background {
     position: fixed;
