@@ -24,6 +24,7 @@ window.addEventListener('load', function() {
     contentContainer.style.alignItems = 'center';
 });
 
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById("chat-form");
     const input = document.getElementById("user-input");
@@ -33,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const userMessage = input.value.trim();
         if (!userMessage) return;
+
+        // 👉 Make the chat box visible when a question is submitted
+        chat.style.display = 'block';
 
         // Append user message
         chat.innerHTML += `<div class="user"><strong>You:</strong> ${userMessage}</div>`;

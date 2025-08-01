@@ -151,6 +151,21 @@ body, html {
     max-height: 300px;
 }
 
+#chat-output {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid rgba(0, 241, 255, 1);
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(0, 241, 255, 0.7);
+  white-space: pre-wrap;
+}
+
 
 a {
     text-decoration: none;
