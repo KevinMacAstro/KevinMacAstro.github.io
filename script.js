@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let speed = 0.2; // Reduced for more natural motion
-    let maxBrightness = 1.2;
-    let minBrightness = 0.5;
+    let maxBrightness = 2.2;
+    let minBrightness = 0.8;
     let scrollHeight = document.body.scrollHeight - window.innerHeight;
 
     let brightness = minBrightness + (maxBrightness - minBrightness) * (0.5 * (1 + Math.sin((scrollTop / scrollHeight) * 2 * Math.PI)));
