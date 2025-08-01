@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             const data = await res.json();
-            chat.innerHTML += `<div class="bot"><strong>Bot:</strong> ${data.response}</div>`;
+            chat.innerHTML += `<div class="bot"><strong>Research Assistant:</strong> ${data.response}</div>`;
             chat.scrollTop = chat.scrollHeight;
 
         } catch (error) {
