@@ -49,8 +49,8 @@ body, html {
   height: 100vh;
 
   background-image: 
-    url('asterism_tile2.png'),
-    url('asterism_tile2.png');  /* Use two layers */
+    url('asterism_tile3.png'),
+    url('asterism_tile3.png');  /* Use two layers */
 
   background-repeat: repeat;
   background-size: 230px 230px;
