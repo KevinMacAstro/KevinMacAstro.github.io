@@ -134,6 +134,7 @@ body, html {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
+    align-items: center; 
     border: 2px solid var(--accent-color);
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -142,6 +143,7 @@ body, html {
     white-space: pre-wrap;
     overflow-y: auto;
     max-height: 300px;
+    margin: 0 auto; 
 }
 
 #chat-output {
