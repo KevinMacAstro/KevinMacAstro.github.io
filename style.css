@@ -43,7 +43,6 @@ body, html {
   z-index: -1;
 }
 
-
 .content-container {
     display: flex; /* Enable flexbox layout */
     justify-content: center; /* Center horizontally */
@@ -128,9 +127,7 @@ body, html {
     transition: background-color 0.3s, color 0.3s;
 }
 
-#chat-form button:hover {
-    background-color: var(--accent-bg-hover);
-}
+
 
 /* Chat Box */
 .chat-box {

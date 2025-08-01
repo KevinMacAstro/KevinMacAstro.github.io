@@ -20,12 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener('load', function() {
     const contentContainer = document.querySelector('.content-container');
-
-    // Center the content within the container.  Uses flexbox
     contentContainer.style.display = 'flex';
     contentContainer.style.justifyContent = 'center';
     contentContainer.style.alignItems = 'center';
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
