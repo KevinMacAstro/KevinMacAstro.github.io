@@ -43,29 +43,6 @@ body, html {
   z-index: -1;
 }
 
-.asterism {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background-image: 
-    url('asterism_tile3.png'),
-    url('asterism_tile3.png');  /* Use two layers */
-
-  background-repeat: repeat;
-  background-size: 230px 230px;
-
-  /* Stagger the second layer by half a tile horizontally and vertically */
-  background-position: 0 0, 0px 115px;
-
-  background-attachment: scroll;
-  mix-blend-mode: overlay;
-  filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.15));
-  z-index: -1;
-}
-
 
 .content-container {
     display: flex; /* Enable flexbox layout */
