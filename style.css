@@ -27,7 +27,7 @@ body, html {
 }
 
 /* Glossy asterism tiles overlaid */
-.asterismOG {
+.asterism {
   position: absolute;
   top: 0;
   left: 0;
