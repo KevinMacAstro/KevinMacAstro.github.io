@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         chat.style.display = 'block';
 
         // Append user message
-        chat.innerHTML += `<div class="user"><strong>You:</strong> ${userMessage}</div>`;
+        chat.innerHTML += `<div class="user"><strong>Interlocutor:</strong> ${userMessage}</div>`;
         input.value = "";
 
         try {
