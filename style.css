@@ -214,13 +214,13 @@ a {
   width: 80px; /* example updated size */
   height: 50px; /* give it a defined height for vertical centering */
 
-  padding: 20px;
-  margin: 20px auto;
+  padding: 30px;
+  margin: 30px auto;
 
   border: 2px solid var(--accent-color);
   border-radius: 10px;
 
-  background-image: url('button_asterism4.png');
+  background-image: url('button_asterism2.png');
   background-size: 50px 50px;
   background-repeat: repeat;
   background-color: #111;
@@ -270,8 +270,8 @@ a {
 }
 
 .back-button:hover img {
-  filter: drop-shadow(0 0 10px var(--accent-color));
-  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px var(--accent-color));
+  transform: scale(1.1);
 }
 
 
