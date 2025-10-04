@@ -225,7 +225,7 @@ a {
   background-repeat: repeat;
   background-color: #111;
 
-  color: black;
+  color: white;
   font-family: monospace;
   text-align: center;
   box-shadow: 0 0 10px var(--accent-glow);
@@ -274,14 +274,6 @@ a {
   transform: scale(1.05);
 }
 
-.back-button {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 0.5s;
-}
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
 
 
