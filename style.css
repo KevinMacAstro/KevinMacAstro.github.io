@@ -384,7 +384,7 @@ a {
     box-shadow: 0 0 20px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 28px var(--accent-glow);
+    box-shadow: 0 0 50px var(--accent-glow);
   }
 }
 
