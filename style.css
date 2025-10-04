@@ -74,6 +74,12 @@ body, html {
   margin: 0 auto;
 }
 
+.front-page .content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
 .border-line {
   position: fixed;

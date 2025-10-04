@@ -18,11 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-window.addEventListener('load', function() {
-    const contentContainer = document.querySelector('.content-container');
+window.addEventListener('load', function () {
+  const contentContainer = document.querySelector('.content-container');
+  if (document.body.classList.contains('front-page')) {
     contentContainer.style.display = 'flex';
     contentContainer.style.justifyContent = 'center';
     contentContainer.style.alignItems = 'center';
+    contentContainer.style.minHeight = '100vh';
+  }
 });
 
 
