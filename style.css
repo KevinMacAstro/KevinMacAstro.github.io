@@ -264,33 +264,41 @@ a {
   z-index: 1;
 }
 
-
 .back-button {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px;
-  border: 2px solid var(--accent-color);
-  border-radius: 10px;
-  background-color: transparent;
   text-decoration: none;
-
-  /* 💡 Glow pseudo-element */
-  box-shadow: 0 0 15px var(--accent-glow);
-  transition: box-shadow 0.3s ease;
-  z-index: 10;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  height: auto; /* no fixed height */
 }
 
-.back-button:hover {
-  box-shadow: 0 0 25px var(--accent-color);
+/* Asterism Icon */
+.back-button .back-icon {
+  height: 50px;  /* adjust this to shrink/grow the icon */
+  width: auto;
+  display: block;
+  transition: filter 0.3s ease;
 }
 
-/* Optional size control for the images */
-.back-icon, .back-text {
-  height: 40px; /* Adjust size as needed */
-  object-fit: contain;
+/* Text image */
+.back-button .back-text {
+  height: 30px;  /* adjust this separately */
+  width: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Glowing effect on hover */
+.back-button:hover .back-icon,
+.back-button:hover .back-text {
+  filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 
