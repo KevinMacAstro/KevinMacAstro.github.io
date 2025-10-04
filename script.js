@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 window.addEventListener('load', function() {
   const contentContainer = document.querySelector('.content-container');
 
@@ -26,13 +25,11 @@ window.addEventListener('load', function() {
     contentContainer.style.justifyContent = 'center';
     contentContainer.style.alignItems = 'center';
   } else {
-    // Ensure scrollable layout
     contentContainer.style.display = 'block';
     contentContainer.style.justifyContent = '';
     contentContainer.style.alignItems = '';
   }
 });
-
 
 document.querySelectorAll('.glow-hover').forEach(el => {
   el.addEventListener('mouseenter', () => {
