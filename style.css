@@ -299,42 +299,43 @@ a {
   animation: pulseGlow 1.5s ease-in-out infinite;
 }
 
-
 .back-button {
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 1000;
-
-  display: flex;            /* Make the children (images) align horizontally */
-  align-items: center;       /* Vertically center them */
-  gap: 10px;                 /* Space between the icon and text */
+  display: flex;
+  align-items: center;        /* Aligns items vertically in the center */
+  gap: 10px;                  /* Space between icon and text */
   text-decoration: none;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  height: auto;              /* no fixed height */
+  height: auto;
 }
 
-/* Asterism Icon */
+/* Asterism icon */
 .back-button .back-icon {
-  height: 50px;  /* adjust this to shrink/grow the icon */
+  height: 40px;
   width: auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   transition: filter 0.3s ease;
 }
 
 /* Text image */
 .back-button .back-text {
-  height: 30px;  /* adjust separately for balance */
+  height: 35px; /* Match this better to icon size */
   width: auto;
-  display: block;
-  /* No glow here */
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.3s ease;
 }
 
-/* 🔆 Glow only on the asterism when hovered */
+/* Glow on hover — only for the asterism */
 .back-button:hover .back-icon {
-  filter: drop-shadow(0 0 8px var(--accent-glow));
+  filter: drop-shadow(0 0 6px var(--accent-glow));
 }
+
 
