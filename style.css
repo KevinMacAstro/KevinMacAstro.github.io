@@ -365,7 +365,7 @@ a {
 /* Talk Card container */
 .talk-card {
   display: block;
-  width: 360px;
+  width: 150px;
   border-radius: 12px;
   border: 2px solid var(--accent-color);
   overflow: hidden;
@@ -380,6 +380,27 @@ a {
 .talk-card:hover {
   animation: talkPulse 1.5s ease-in-out infinite;
 }
+
+
+.post-card {
+  display: block;
+  width: 70px;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  background: black;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: box-shadow 0.8s ease; /* <- gradual fade-out */
+}
+
+/* Pulse animation when hovered */
+.post-card:hover {
+  animation: talkPulse 1.5s ease-in-out infinite;
+}
+
+
 
 /* Keyframes for heartbeat-like glow */
 @keyframes talkPulse {
