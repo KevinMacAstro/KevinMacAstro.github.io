@@ -97,10 +97,10 @@ body.front-page .content-container {
 
 .border-line {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   pointer-events: none;
   box-sizing: border-box; 
   border: 2px solid var(--accent-color);
