@@ -24,6 +24,12 @@ body, html {
 
 .glow-hover:hover {
   animation: universalPulse 1.5s ease-in-out infinite;
+
+.glow-hover {
+  box-shadow: 0 0 0px var(--accent-glow);
+  transition: box-shadow 1.5s ease-out;
+}
+
 }
 
 
