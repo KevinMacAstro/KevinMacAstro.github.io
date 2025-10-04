@@ -318,7 +318,7 @@ a {
 
 /* Asterism icon */
 .back-button .back-icon {
-  height: 60px;
+  height: 40px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
@@ -328,7 +328,7 @@ a {
 /* Text image */
 .back-button .back-text {
   height: auto; /* Match this better to icon size */
-  width: 70px;
+  width: 140px;
   display: inline-block;
   vertical-align: middle;
   transition: filter 0.3s ease;
