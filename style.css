@@ -85,8 +85,8 @@ body, html {
 }
 
 .header-image img {
-    width: 100px; /* Or any value you like */
-    height: auto;
+    width: auto; /* Or any value you like */
+    height: 40px;
 }
 
 
