@@ -76,8 +76,8 @@ body, html {
 
 
 .header-image {
-    width: 100px;
-    height: 30px;
+    width: 50px;
+    height: auto;
     padding: 30px;
     margin: 30px auto;
     display: flex;
@@ -339,19 +339,24 @@ a {
   filter: drop-shadow(0 0 6px var(--accent-glow));
 }
 
+/* 🖼️ Talk Card Wrapper */
+.talk-card-wrapper {
+  width: 360px;
+  margin: 40px auto;
+  text-align: center;
+}
 
-/* 📄 Talk Card Button */
+/* 🔲 Clickable Thumbnail */
 .talk-card {
   display: block;
-  width: 360px;
+  width: 100%;
   height: 200px;
-  margin: 40px auto;
   border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
+  border: 2px solid var(--accent-color);
   position: relative;
-  box-shadow: 0 0 0 transparent;
-  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 0 0px transparent;
+  transition: box-shadow 0.2s ease-in;
 }
 
 .talk-card-image {
@@ -359,19 +364,33 @@ a {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.9); /* Slight dark to boost overlay text contrast */
+  filter: brightness(1); /* Keep slide looking clean */
 }
 
-.talk-card-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  color: white;
+/* 💡 Glowing effect with subtle pulse on hover */
+.talk-card:hover {
+  box-shadow: 0 0 18px var(--accent-glow);
+  animation: subtle-pulse 1.5s ease-in-out infinite;
+}
+
+/* 🫀 Pulse Animation */
+@keyframes subtle-pulse {
+  0% {
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  100% {
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+}
+
+/* 📝 Caption Text Below */
+.talk-caption {
+  margin-top: 12px;
   font-family: monospace;
-  z-index: 2;
-  text-align: center;
+  color: white;
 }
 
 .talk-title {
@@ -383,11 +402,5 @@ a {
   font-size: 13px;
   opacity: 0.8;
 }
-
-/* 💡 Glow effect on hover */
-.talk-card:hover {
-  box-shadow: 0 0 20px var(--accent-glow);
-}
-
 
 
