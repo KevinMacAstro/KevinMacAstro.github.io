@@ -251,32 +251,29 @@ a {
   line-height: 1.4;
 }
 
-
-.home-button {
+.back-button {
   position: absolute;
-  top: 25px;  /* adjust as needed */
-  left: 25px; /* adjust as needed */
+  top: 30px;           /* Move in from top */
+  left: 30px;          /* Move in from left */
+  text-decoration: none;
+  display: inline-block;
+  transition: box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.back-button-content {
   display: flex;
   align-items: center;
-  gap: 10px; /* space between asterism and name image */
-  text-decoration: none;
-  z-index: 1000;
-  padding: 5px;
-  transition: filter 0.3s ease;
+  gap: 8px; /* space between icon and text */
 }
 
-.home-button:hover {
-  filter: drop-shadow(0 0 8px var(--accent-glow));
+.back-icon,
+.back-text {
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+  height: 40px;   /* Set both to same height */
+  width: auto;    /* Maintain aspect ratio */
 }
-
-.home-icon {
-  width: 32px;  /* Adjust size */
-  height: 32px;
-}
-
-.home-text {
-  height: 32px;
-  object-fit: contain;
-}
-
 
