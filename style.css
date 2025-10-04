@@ -365,7 +365,7 @@ a {
 /* Talk Card container */
 .talk-card {
   display: block;
-  width: 150px;
+  width: 300px;
   border-radius: 12px;
   border: 2px solid var(--accent-color);
   overflow: hidden;
@@ -400,15 +400,13 @@ a {
   animation: talkPulse 1.5s ease-in-out infinite;
 }
 
-
-
 /* Keyframes for heartbeat-like glow */
 @keyframes talkPulse {
   0%, 100% {
     box-shadow: 0 0 22px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 28px var(--accent-glow);
+    box-shadow: 0 0 50px var(--accent-glow);
   }
 }
 
@@ -422,18 +420,18 @@ a {
 
 /* Caption styling */
 .talk-caption {
-  margin-top: 12px;
+  margin-top: 7px;
   text-align: center;
   color: white;
   font-family: monospace;
 }
 
 .talk-title {
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
 }
 
 .talk-meta {
-  font-size: 13px;
+  font-size: 7px;
   opacity: 0.8;
 }
