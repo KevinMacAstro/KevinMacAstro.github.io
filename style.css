@@ -9,6 +9,15 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
+
+/* Accent Variables */
+:root {
+    --accent-color: rgba(0, 241, 255, 1);
+    --accent-glow: rgba(0, 241, 255, 0.5);
+    --accent-bg-hover: rgba(0, 241, 255, 0.3);
+    --accent-bg-button: rgba(0, 241, 255, 0.2);
+}
+
 body.front-page .border-line {
   position: fixed;
 }
@@ -97,7 +106,7 @@ body.front-page .content-container {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid rgba(0,241,255,255);
+  border: 2px solid var(--accent-color);
   border-radius: 10px;
   pointer-events: none;
   margin: 20px;
