@@ -273,4 +273,14 @@ a {
   transform: scale(1.1);
 }
 
+.back-to-home {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
 
