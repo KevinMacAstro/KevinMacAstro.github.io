@@ -205,41 +205,41 @@ a {
   box-shadow: 0 0 16px var(--accent-color);
 }
 
-
 .glow-link-box {
-  display: inline-block;
-  width: 100px;
-  margin: 20px auto;
+  display: flex; /* Flex for centering */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ⬅ This centers text vertically */
+  
+  width: 240px; /* example updated size */
+  height: 150px; /* give it a defined height for vertical centering */
+
   padding: 20px;
+  margin: 20px auto;
+
   border: 2px solid var(--accent-color);
   border-radius: 10px;
 
-  /* 🔁 Repeating glowing asterism tile */
-  background-image: url('button_asterism2.png');
+  background-image: url('button_asterism1.png');
   background-size: 50px 50px;
   background-repeat: repeat;
-  background-color: #111; /* Glossy black background beneath tiles */
+  background-color: #111;
 
-  /* Text Styling */
   color: white;
   font-family: monospace;
   text-align: center;
-  white-space: pre-wrap;
   box-shadow: 0 0 10px var(--accent-glow);
   transition: box-shadow 0.3s ease;
   text-decoration: none;
 
-  /* Optional: darker overlay behind text */
   position: relative;
+  overflow: hidden; /* ensures glow and overlay stay bounded */
 }
 
 .glow-link-box::before {
   content: "";
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  inset: 10px; /* shorthand for top/right/bottom/left */
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 6px;
   z-index: 0;
@@ -248,5 +248,7 @@ a {
 .glow-link-box span {
   position: relative;
   z-index: 1;
+  line-height: 1.4;
 }
+
 
