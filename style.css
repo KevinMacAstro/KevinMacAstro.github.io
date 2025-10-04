@@ -385,7 +385,7 @@ a {
   text-decoration: none;
   position: relative;
   background: black;
-  box-shadow: 0 10px 2px var(--accent-glow);
+  box-shadow: 0 0 0 var(--accent-glow);
   transition: box-shadow 0.8s ease-in-out; /* <- gradual fade-out */
 }
 
@@ -404,7 +404,7 @@ a {
   text-decoration: none;
   position: relative;
   background: black;
-  box-shadow: 0 10px 2px var(--accent-glow);
+  box-shadow: 0 0 0 var(--accent-glow);
   transition: box-shadow 0.8s ease; /* <- gradual fade-out */
 }
 
