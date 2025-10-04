@@ -362,33 +362,36 @@ a {
   align-items: center;
 }
 
-/* Adjust talk-card size for horizontal tiling */
+/* Talk Card container */
 .talk-card {
+  display: block;
   width: 360px;
-  height: auto;
   border-radius: 12px;
   border: 2px solid var(--accent-color);
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  box-shadow: 0 0 0 transparent;
+  text-decoration: none;
   position: relative;
   background: black;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: box-shadow 0.8s ease; /* <- gradual fade-out */
 }
 
+/* Pulse animation when hovered */
 .talk-card:hover {
   animation: talkPulse 1.5s ease-in-out infinite;
 }
 
-/* Pulse animation like the click box */
+/* Keyframes for heartbeat-like glow */
 @keyframes talkPulse {
   0%, 100% {
-    box-shadow: 0 0 20px var(--accent-glow);
+    box-shadow: 0 0 22px var(--accent-glow);
   }
   50% {
     box-shadow: 0 0 28px var(--accent-glow);
   }
 }
 
+/* Slide image inside the card */
 .talk-slide {
   display: block;
   width: 100%;
@@ -396,7 +399,7 @@ a {
   object-fit: contain;
 }
 
-/* Caption styling below thumbnail */
+/* Caption styling */
 .talk-caption {
   margin-top: 12px;
   text-align: center;
@@ -413,4 +416,3 @@ a {
   font-size: 13px;
   opacity: 0.8;
 }
-
