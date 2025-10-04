@@ -287,15 +287,16 @@ a {
   top: 20px;
   left: 20px;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+
+  display: flex;            /* Make the children (images) align horizontally */
+  align-items: center;       /* Vertically center them */
+  gap: 10px;                 /* Space between the icon and text */
   text-decoration: none;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  height: auto; /* no fixed height */
+  height: auto;              /* no fixed height */
 }
 
 /* Asterism Icon */
@@ -308,15 +309,14 @@ a {
 
 /* Text image */
 .back-button .back-text {
-  height: 30px;  /* adjust this separately */
+  height: 30px;  /* adjust separately for balance */
   width: auto;
   display: block;
-  transition: filter 0.3s ease;
+  /* No glow here */
 }
 
-/* Glowing effect on hover */
-.back-button:hover .back-icon,
-.back-button:hover .back-text {
+/* 🔆 Glow only on the asterism when hovered */
+.back-button:hover .back-icon {
   filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 
