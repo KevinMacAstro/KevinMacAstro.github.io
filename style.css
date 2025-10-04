@@ -271,6 +271,7 @@ a {
 
 .back-button:hover img {
   filter: drop-shadow(0 0 10px var(--accent-color));
+  transform: scale(1.05);
 }
 
 .back-button {
