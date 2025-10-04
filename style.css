@@ -267,27 +267,30 @@ a {
 
 .back-button {
   position: absolute;
-  top: 30px;           /* Move in from top */
-  left: 30px;          /* Move in from left */
+  top: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  background-color: transparent;
   text-decoration: none;
-  display: inline-block;
+
+  /* 💡 Glow pseudo-element */
+  box-shadow: 0 0 15px var(--accent-glow);
   transition: box-shadow 0.3s ease;
+  z-index: 10;
 }
 
 .back-button:hover {
-  box-shadow: 0 0 15px var(--accent-glow);
+  box-shadow: 0 0 25px var(--accent-color);
 }
 
-.back-button-content {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* space between icon and text */
-}
-
-.back-icon,
-.back-text {
-  filter: drop-shadow(0 0 6px var(--accent-glow));
-  height: 40px;   /* Set both to same height */
-  width: auto;    /* Maintain aspect ratio */
+/* Optional size control for the images */
+.back-icon, .back-text {
+  height: 40px; /* Adjust size as needed */
+  object-fit: contain;
 }
 
