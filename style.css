@@ -93,7 +93,22 @@ body.front-page .content-container {
   box-sizing: border-box;
 }
 
+
 .border-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  box-sizing: border-box; 
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+
+.border-lineOLD {
   position: absolute;
   top: 0;
   left: 0;
