@@ -11,10 +11,10 @@ body, html {
 
 @keyframes universalPulse {
   0%, 100% {
-    box-shadow: 0 0 8px 2px var(--accent-glow);
+    box-shadow: 0 0 10px 2px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 8px 2px var(--accent-glow);
+    box-shadow: 0 0 16px 4px var(--accent-glow);
   }
 }
 
@@ -26,7 +26,7 @@ body, html {
   animation: universalPulse 1.5s ease-in-out infinite;
 
 .glow-hover {
-  box-shadow: 0 8px 2px var(--accent-glow);
+  box-shadow: 0 10px 2px var(--accent-glow);
   transition: box-shadow 1.5s ease-out;
 }
 
