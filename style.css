@@ -95,7 +95,7 @@ body:not(.front-page) .border-line {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid var(--accent-glow);
+  border: 2px solid var(--accent-color);
   border-radius: 10px;
   pointer-events: none;
   margin: 20px;
