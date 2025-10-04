@@ -29,8 +29,6 @@ body, html {
 }
 
 
-
-
 .background {
     position: fixed;
     top: 0;
@@ -72,17 +70,24 @@ body, html {
     box-sizing: border-box; /* Ensure padding and border are included in element dimensions */
 }
 
+.content-wrapper {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
 .border-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; /*This line is important!*/
-    border: 2px solid rgba(0,241,255,255);
-    border-radius: 10px;
-    pointer-events: none;
-    margin: 20px; /*This will create the inset. No need for Javascript here*/
-    box-sizing: border-box; /*Ensure margin is included in element dimensions */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: -3;
 }
 
 
