@@ -252,32 +252,31 @@ a {
 }
 
 
-
-.back-button {
+.home-button {
   position: absolute;
-  top: 20px;      /* move down from the top */
-  left: 20px;     /* move right from the left */
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  transition: filter 0.3s ease;
-  z-index: 10;
-}
-
-
-.back-button img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  filter: drop-shadow(0 0 0px transparent); /* no glow by default */
+  top: 25px;  /* adjust as needed */
+  left: 25px; /* adjust as needed */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between asterism and name image */
+  text-decoration: none;
+  z-index: 1000;
+  padding: 5px;
   transition: filter 0.3s ease;
 }
 
-.back-button:hover img {
-  filter: drop-shadow(0 0 5px var(--accent-color));
-  transform: scale(1.1);
+.home-button:hover {
+  filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 
+.home-icon {
+  width: 32px;  /* Adjust size */
+  height: 32px;
+}
 
+.home-text {
+  height: 32px;
+  object-fit: contain;
+}
 
 
