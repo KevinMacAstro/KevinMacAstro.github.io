@@ -9,27 +9,33 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
-@keyframes universalPulse {
-  0%, 100% {
-    box-shadow: 0 0 10px 2px var(--accent-glow);
+@keyframes glowPulseFade {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  20% {
+    box-shadow: 0 0 14px 2px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 16px 4px var(--accent-glow);
+    box-shadow: 0 0 18px 4px var(--accent-glow);
+  }
+  80% {
+    box-shadow: 0 0 14px 2px var(--accent-glow);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
   }
 }
 
-/* Base state (no glow) */
 .glow-hover {
-  box-shadow: 0 0 0 transparent;
-  transition: box-shadow 1s ease-out; /* fade-out when mouse leaves */
+  transition: box-shadow 1.5s ease-out;
 }
 
-/* Hover state (pulse animation) */
-.glow-hover:hover {
-  animation: universalPulse 1.5s ease-in-out infinite; /* pulse on hover */
-  box-shadow: 0 0 10px 2px var(--accent-glow); /* fade up quickly */
-  transition: box-shadow 0.3s ease-in; /* faster fade-in */
+.glow-hover.hover-active {
+  animation: glowPulseFade 2.5s ease-in-out forwards;
 }
+
+
 
 
 .background {

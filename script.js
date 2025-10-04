@@ -27,6 +27,21 @@ window.addEventListener('load', function() {
 
 
 
+document.querySelectorAll('.glow-hover').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.classList.remove('fade-out');
+    void el.offsetWidth; // force reflow
+    el.classList.add('hover-active');
+  });
+
+  el.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+      el.classList.remove('hover-active');
+    }, 500); // Let the glow stay a bit longer
+  });
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById("chat-form");
     const input = document.getElementById("user-input");
