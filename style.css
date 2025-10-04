@@ -211,8 +211,8 @@ a {
   align-items: center;
   justify-content: center; /* ⬅ This centers text vertically */
   
-  width: 240px; /* example updated size */
-  height: 150px; /* give it a defined height for vertical centering */
+  width: 60px; /* example updated size */
+  height: 40px; /* give it a defined height for vertical centering */
 
   padding: 20px;
   margin: 20px auto;
