@@ -18,13 +18,6 @@ body, html {
     --accent-bg-button: rgba(0, 241, 255, 0.2);
 }
 
-body.front-page .border-line {
-  position: fixed;
-}
-
-body:not(.front-page) .border-line {
-  position: absolute;
-}
 
 @keyframes pulseGlow {
   0%, 100% {
