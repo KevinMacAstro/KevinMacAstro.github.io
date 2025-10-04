@@ -255,8 +255,8 @@ a {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  border-radius: 15px;
-  box-shadow: 0 0 0px var(--accent-glow); /* start subtle */
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--accent-glow); /* start subtle */
   z-index: -1;
   pointer-events: none;
   transition: box-shadow 1.2s ease-out; /* ⬅ slow fade on hover end */
@@ -283,10 +283,10 @@ a {
 
 
 @keyframes pulseGlow {
-  50% {
+  20% {
     box-shadow: 0 0 24px var(--accent-glow);
   }
-  75% {
+  50% {
     box-shadow: 0 0 28px var(--accent-glow);
   }
   100% {
@@ -295,9 +295,9 @@ a {
 }
 
 .glow-link-box:hover::after {
-  animation: pulse-glow 1.2s ease-in-out infinite; /* ⬅ Heartbeat pulse */
+  animation: pulse-glow 1.8s ease-in-out infinite; /* ⬅ Heartbeat pulse */
   box-shadow: 0 0 25px var(--accent-glow); /* ⬅ fast glow-up */
-  transition: box-shadow 0.2s ease-in; /* ⬅ fast ramp up */
+  transition: box-shadow 0.6s ease-in; /* ⬅ fast ramp up */
 }
 
 .back-button {
