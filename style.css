@@ -9,30 +9,23 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
-@keyframes glowPulseFade {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-  20% {
-    box-shadow: 0 0 14px 2px var(--accent-glow);
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px 1px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 18px 4px var(--accent-glow);
-  }
-  80% {
-    box-shadow: 0 0 14px 2px var(--accent-glow);
-  }
-  100% {
-    box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 16px 4px var(--accent-glow);
   }
 }
 
 .glow-hover {
+  box-shadow: none;
   transition: box-shadow 1.5s ease-out;
 }
 
 .glow-hover.hover-active {
-  animation: glowPulseFade 2.5s ease-in-out forwards;
+  animation: pulseGlow 1.5s ease-in-out forwards;
+  transition: box-shadow 0.5s ease-in; /* fade in quickly */
 }
 
 
