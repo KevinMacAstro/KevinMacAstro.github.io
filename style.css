@@ -394,7 +394,7 @@ a {
   border-radius: 12px;
   padding: 4px;
   background-color: #000;
-  transition: box-shadow 1.5s ease-out;
+  transition: box-shadow 0.6s ease-out;
   position: relative;
   overflow: hidden;
 }
@@ -402,14 +402,14 @@ a {
 /* Image inside */
 .talk-card .talk-slide {
   display: block;
-  width: 100%;
+  width: 60%;
   height: auto;
   border-radius: 8px;
 }
 
 /* ✨ Hover Trigger + Pulse */
 .talk-card:hover {
-  animation: subtlePulse 1.8s ease-in-out infinite;
+  animation: subtlePulse 1.2s ease-in-out infinite;
   transition: none; /* let animation take over */
 }
 
@@ -417,7 +417,7 @@ a {
 .talk-card:not(:hover) {
   animation: none;
   box-shadow: 0 0 0 var(--accent-glow); /* Start at current level */
-  transition: box-shadow 1.2s ease-out;
+  transition: box-shadow 1.6s ease-out;
 }
 
 
