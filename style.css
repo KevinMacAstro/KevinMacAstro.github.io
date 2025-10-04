@@ -208,7 +208,7 @@ a {
 
 .glow-link-box {
   display: inline-block;
-  max-width: 300px;
+  width: 100px;
   margin: 20px auto;
   padding: 20px;
   border: 2px solid var(--accent-color);
