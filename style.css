@@ -284,7 +284,7 @@ a {
   box-shadow: 0 0 0px var(--accent-glow); /* start subtle */
   z-index: -1;
   pointer-events: none;
-  transition: box-shadow 0.6s ease-out; /* ⬅ slow fade on hover end */
+  transition: box-shadow 0.8s ease-in-out; /* ⬅ slow fade on hover end */
 }
 
 /* 🌓 Dark Text Overlay */
@@ -310,7 +310,7 @@ a {
 .glow-link-box:hover::after {
   animation: universalPulse 0.6s ease-in-out infinite; /* ⬅ Heartbeat pulse */
   box-shadow: 0 0 30px var(--accent-glow); /* ⬅ fast glow-up */
-  transition: box-shadow 0.2s ease-in; /* ⬅ fast ramp up */
+  transition: box-shadow 0.2s ease-in-out; /* ⬅ fast ramp up */
 }
 
 .back-button {
@@ -335,7 +335,7 @@ a {
   width: auto;
   display: inline-block;
   vertical-align: middle;
-  transition: filter 0.5s ease;
+  transition: filter 0.5s ease-in-out;
 }
 
 /* Text image */
@@ -385,7 +385,7 @@ a {
   position: relative;
   background: black;
   box-shadow: 0 0 0px var(--accent-glow);
-  transition: box-shadow 0.8s ease; /* <- gradual fade-out */
+  transition: box-shadow 0.8s ease-in-out; /* <- gradual fade-out */
 }
 
 
