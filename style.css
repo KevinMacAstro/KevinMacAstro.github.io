@@ -207,8 +207,8 @@ a {
   align-items: center;
   justify-content: center;
 
-  width: 240px;
-  height: 140px;
+  width: 80px;
+  height: 50px;
   padding: 30px;
   margin: 30px auto;
 
@@ -262,6 +262,10 @@ a {
 .glow-link-box span {
   position: relative;
   z-index: 1;
+}
+
+.glow-link-box:hover::after {
+  box-shadow: 0 0 35px var(--accent-glow), 0 0 60px var(--accent-glow);
 }
 
 .back-button {
