@@ -9,7 +9,6 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
-
 @keyframes universalPulse {
   0%, 100% {
     box-shadow: 0 0 10px 2px var(--accent-glow);
@@ -19,18 +18,17 @@ body, html {
   }
 }
 
+/* Base state (no glow) */
 .glow-hover {
-  transition: box-shadow 1.5s ease-in-out;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 1s ease-out; /* fade-out when mouse leaves */
 }
 
+/* Hover state (pulse animation) */
 .glow-hover:hover {
-  animation: universalPulse 1.5s ease-in-out infinite;
-
-.glow-hover {
-  box-shadow: 0 10px 2px var(--accent-glow);
-  transition: box-shadow 1.5s ease-out;
-}
-
+  animation: universalPulse 1.5s ease-in-out infinite; /* pulse on hover */
+  box-shadow: 0 0 16px 4px var(--accent-glow); /* fade up quickly */
+  transition: box-shadow 0.3s ease-in; /* faster fade-in */
 }
 
 
@@ -68,7 +66,8 @@ body, html {
     align-items: center; /* Center vertically */
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
+    height: auto;
     margin: 0; /* Important: Remove any margins from the container*/
     padding: 0; /* Important: Remove any padding from the container */
     box-sizing: border-box; /* Ensure padding and border are included in element dimensions */
@@ -307,13 +306,6 @@ a {
   z-index: 2;
 }
 
-
-.glow-link-box:hover::after {
-  animation: universalPulse 1.5s ease-in-out infinite; /* ⬅ Heartbeat pulse */
-  box-shadow: 0 10px 2px var(--accent-glow); /* ⬅ fast glow-up */
-  transition: box-shadow 1.5s ease-in-out; /* ⬅ fast ramp up */
-}
-
 .back-button {
   position: absolute;
   top: 40px;
@@ -390,11 +382,6 @@ a {
 }
 
 
-/* Pulse animation when hovered */
-.talk-card:hover {
-  animation: universalPulse 1.5s ease-in-out infinite;
-}
-
 .post-card {
   display: block;
   width: 150px;
@@ -408,10 +395,6 @@ a {
   transition: box-shadow 0.8s ease; /* <- gradual fade-out */
 }
 
-/* Pulse animation when hovered */
-.post-card:hover {
-  animation: universalPulse 1.5s ease-in-out infinite;
-}
 
 /* Slide image inside the card */
 .talk-slide {
