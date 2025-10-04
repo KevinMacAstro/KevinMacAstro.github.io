@@ -27,7 +27,7 @@ body, html {
 /* Hover state (pulse animation) */
 .glow-hover:hover {
   animation: universalPulse 1.5s ease-in-out infinite; /* pulse on hover */
-  box-shadow: 0 0 16px 4px var(--accent-glow); /* fade up quickly */
+  box-shadow: 0 0 10px 2px var(--accent-glow); /* fade up quickly */
   transition: box-shadow 0.3s ease-in; /* faster fade-in */
 }
 
@@ -110,7 +110,7 @@ body, html {
 
 .header-image img {
     width: auto; /* Or any value you like */
-    height: 30px;
+    height: 40px;
 }
 
 
