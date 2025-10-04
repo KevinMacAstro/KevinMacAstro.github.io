@@ -376,6 +376,50 @@ a {
   box-shadow: 0 0 25px var(--accent-glow), 0 0 50px var(--accent-glow);
 }
 
+
+/* 🧠 Talk Card Glowing Animation */
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 28px var(--accent-glow);
+  }
+}
+
+.talk-card {
+  display: inline-block;
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 4px;
+  background-color: #000;
+  transition: box-shadow 1.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image inside */
+.talk-card .talk-slide {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ✨ Hover Trigger + Pulse */
+.talk-card:hover {
+  animation: subtlePulse 1.8s ease-in-out infinite;
+  transition: none; /* let animation take over */
+}
+
+/* 🌙 Stop pulsing + slow fade on hover out */
+.talk-card:not(:hover) {
+  animation: none;
+  box-shadow: 0 0 0 var(--accent-glow); /* Start at current level */
+  transition: box-shadow 1.2s ease-out;
+}
+
+
 /* 📝 Caption Text Styling */
 .talk-caption {
   text-align: center;
