@@ -215,8 +215,8 @@ a {
   border-radius: 10px;
 
   /* 🔁 Repeating glowing asterism tile */
-  background-image: url('asterism_tile2.png');
-  background-size: 200px 200px;
+  background-image: url('button_asterism1.png');
+  background-size: 50px 50px;
   background-repeat: repeat;
   background-color: #111; /* Glossy black background beneath tiles */
 
