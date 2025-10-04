@@ -170,3 +170,35 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.link-box {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.link-style {
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.link-style:hover {
+  background-color: rgba(0, 241, 255, 0.15);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+
