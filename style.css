@@ -94,7 +94,7 @@ body.front-page .content-container {
 }
 
 .border-line {
-  position: fixed; /* or use 'absolute' only if necessary */
+  position: absolute; /* or use 'absolute' only if necessary */
   top: 0;
   left: 0;
   right: 0;
