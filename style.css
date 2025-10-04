@@ -257,7 +257,7 @@ a {
   right: 0px;
   bottom: 0px;
   border-radius: 10px;
-  box-shadow: 0 0 15px var(--accent-glow); /* start subtle */
+  box-shadow: 0 0 0px var(--accent-glow); /* start subtle */
   z-index: -1;
   pointer-events: none;
   transition: box-shadow 0.6s ease-out; /* ⬅ slow fade on hover end */
