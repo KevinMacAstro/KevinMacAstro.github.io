@@ -9,6 +9,14 @@ body, html {
   -webkit-overflow-scrolling: touch;
 }
 
+body.front-page .border-line {
+  position: fixed;
+}
+
+body:not(.front-page) .border-line {
+  position: absolute;
+}
+
 @keyframes pulseGlow {
   0%, 100% {
     box-shadow: 0 0 0px 2px var(--accent-glow);
