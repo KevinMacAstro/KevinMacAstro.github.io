@@ -339,3 +339,54 @@ a {
 }
 
 
+/* 📄 Talk Card Button */
+.talk-card {
+  display: block;
+  width: 360px;
+  height: 200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+.talk-card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9); /* Slight dark to boost overlay text contrast */
+}
+
+.talk-card-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  color: white;
+  font-family: monospace;
+  z-index: 2;
+  text-align: center;
+}
+
+.talk-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.talk-meta {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* 💡 Glow effect on hover */
+.talk-card:hover {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+
+
