@@ -143,14 +143,6 @@ body.front-page .content-container {
 }
 
 
-/* Accent Variables */
-:root {
-    --accent-color: rgba(0, 241, 255, 1);
-    --accent-glow: rgba(0, 241, 255, 0.5);
-    --accent-bg-hover: rgba(0, 241, 255, 0.3);
-    --accent-bg-button: rgba(0, 241, 255, 0.2);
-}
-
 /* Chat Input */
 #user-input {
     font-size: 16px;
