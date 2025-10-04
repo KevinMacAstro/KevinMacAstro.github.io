@@ -201,4 +201,25 @@ a {
   text-shadow: 0 0 8px var(--accent-glow);
 }
 
+.glow-link-box {
+  display: inline-block;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  white-space: pre-wrap;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.glow-link-box:hover {
+  box-shadow: 0 0 16px var(--accent-color);
+}
+
 
