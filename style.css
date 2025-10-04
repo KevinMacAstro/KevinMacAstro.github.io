@@ -94,18 +94,22 @@ body.front-page .content-container {
 }
 
 .border-line {
-  position: absolute; /* or use 'absolute' only if necessary */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  /* ✅ THIS is the trick: make height match content */
+  height: 100%;
+  min-height: 100vh;
+
   border: 2px solid var(--accent-color);
-  border-radius: 10px;
-  pointer-events: none;
+  border-radius: 12px;
   margin: 20px;
+  pointer-events: none;
+  z-index: 5;
   box-sizing: border-box;
-  z-index: -3;
 }
+
 
 
 .center-image {
