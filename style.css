@@ -340,93 +340,68 @@ a {
   filter: drop-shadow(0 0 6px var(--accent-glow));
 }
 
+/* Container for horizontal scroll or row layout */
+.talk-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  justify-content: center;
+  padding: 20px 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
 
+/* Optional: hide scrollbar for a cleaner look */
+.talk-grid::-webkit-scrollbar {
+  display: none;
+}
 
-/* 🧭 Talk Card Wrapper */
 .talk-card-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 40px auto;
-  width: fit-content;
 }
 
-/* 📸 Slide Thumbnail Button */
+/* Adjust talk-card size for horizontal tiling */
 .talk-card {
-  display: inline-block;
-  border: 2px solid var(--accent-color);
-  border-radius: 12px;
-  padding: 4px;
-  transition: box-shadow 0.4s ease;
-  box-shadow: 0 0 0 transparent;
-  background-color: #000;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 🖼️ Ensure full image fits */
-.talk-card .talk-slide {
-  display: block;
-  width: 100%;
+  width: 360px;
   height: auto;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+  position: relative;
+  background: black;
 }
 
-/* ✨ Hover Glow Effect */
 .talk-card:hover {
-  box-shadow: 0 0 25px var(--accent-glow), 0 0 50px var(--accent-glow);
+  animation: talkPulse 1.5s ease-in-out infinite;
 }
 
-
-/* 🧠 Talk Card Glowing Animation */
-@keyframes subtlePulse {
+/* Pulse animation like the click box */
+@keyframes talkPulse {
   0%, 100% {
     box-shadow: 0 0 20px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 50px var(--accent-glow);
+    box-shadow: 0 0 28px var(--accent-glow);
   }
 }
 
-.talk-card {
-  display: inline-block;
-  border: 2px solid var(--accent-color);
-  border-radius: 12px;
-  padding: 4px;
-  background-color: #000;
-  transition: box-shadow 0.6s ease-out;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Image inside */
-.talk-card .talk-slide {
+.talk-slide {
   display: block;
-  width: 60%;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  object-fit: contain;
 }
 
-/* ✨ Hover Trigger + Pulse */
-.talk-card:hover {
-  animation: subtlePulse 1.2s ease-in-out infinite;
-  transition: none; /* let animation take over */
-}
-
-/* 🌙 Stop pulsing + slow fade on hover out */
-.talk-card:not(:hover) {
-  animation: none;
-  box-shadow: 0 0 0 var(--accent-glow); /* Start at current level */
-  transition: box-shadow 1.6s ease-out;
-}
-
-
-/* 📝 Caption Text Styling */
+/* Caption styling below thumbnail */
 .talk-caption {
+  margin-top: 12px;
   text-align: center;
-  margin-top: 10px;
-  font-family: monospace;
   color: white;
+  font-family: monospace;
 }
 
 .talk-title {
