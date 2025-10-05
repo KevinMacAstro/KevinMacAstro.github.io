@@ -351,9 +351,9 @@ a {
   justify-content: center;
 
   width: 70px;
-  height: 10px;
-  padding: 30px;
-  margin: 30px auto;
+  height: 20px;
+  padding: 10px;
+  margin: 10px auto;
 
   border: 2px solid var(--accent-color);
   border-radius: 10px;
