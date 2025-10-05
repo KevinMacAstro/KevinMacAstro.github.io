@@ -79,6 +79,34 @@ body, html {
 }
 
 
+.header-line-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 40px 0;
+  padding: 20px 0;
+}
+
+.header-line-wrapper::before,
+.header-line-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: calc(100% / 2 + 60px); /* slightly wider than the image */
+  background-color: var(--accent-color); /* use your blue accent */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-line-wrapper::before {
+  top: 0;
+}
+
+.header-line-wrapper::after {
+  bottom: 0;
+}
+
+
 .background {
     position: fixed;
     top: 0;
