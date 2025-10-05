@@ -92,7 +92,7 @@ body, html {
   content: "";
   position: absolute;
   height: 2px;
-  width: calc(100% / 2 + 60px); /* slightly wider than the image */
+  width: calc(100% / 2 + 200px); /* slightly wider than the image */
   background-color: var(--accent-color); /* use your blue accent */
   left: 50%;
   transform: translateX(-50%);
