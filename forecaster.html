@@ -23,16 +23,22 @@
         box-shadow: 0 0 12px rgba(0, 241, 255, 0.8);
       }
 
-    .eet-box {
-      max-width: 480px;
-      margin: 40px auto;
-      font-family: monospace;
-      border: 1px solid var(--accent-color);
-      padding: 1.5em;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-    }
+ 
+      .eet-box {
+        width: 100%;
+        max-width: 450px;
+        padding: 20px;
+        border: 2px solid var(--accent-glow);
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 0 10px var(--accent-glow);
+        color: white;
+        font-family: monospace;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+        }
+
+
     .eet-box h3 {
       margin-top: 0;
       text-align: center;
@@ -50,24 +56,35 @@
       background: #222;
       color: white;
     }
-    .eet-box button {
-      margin-top: 1em;
-      padding: 0.6em 1.2em;
-      border: none;
-      background: var(--accent-color);
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .eet-box button:hover {
-      background: var(--accent-glow);
-    }
+
+     .eet-box button {
+       background-color: #00ccff;
+       color: black;
+       padding: 10px;
+       border: none;
+       border-radius: 6px;
+       cursor: pointer;
+       box-shadow: 0 0 8px var(--accent-glow);
+       transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     }
+
+     .eet-box button:hover {
+       background-color: #00b8e6;
+       box-shadow: 0 0 12px var(--accent-glow);
+      }
+
     .eet-output {
-      margin-top: 1em;
-      background: rgba(0,0,0,0.5);
-      padding: 0.8em;
-      border-radius: 8px;
-    }
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 20px;
+      min-height: 2.5em; /* ensures space is reserved even before output */
+      font-size: 0.9em;
+      font-family: monospace;
+      white-space: pre-wrap;
+     }
+
+
   </style>
 </head>
 

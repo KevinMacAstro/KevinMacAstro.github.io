@@ -550,14 +550,23 @@ a {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 60px 20px;
+  width: 100%;
+  padding: 40px 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 .pfs-logo {
-  max-width: 100px;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 0 5px rgba(0, 241, 255, 0.5));
+  max-width: 100%;
+  height: auto;
+  max-height: 100px; /* control size */
+  display: block;
 }
 
