@@ -545,4 +545,12 @@ a {
   }
 }
 
+.content-containerF {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
 
