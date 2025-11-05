@@ -554,3 +554,10 @@ a {
   box-sizing: border-box;
 }
 
+
+.pfs-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 5px rgba(0, 241, 255, 0.5));
+}
+
