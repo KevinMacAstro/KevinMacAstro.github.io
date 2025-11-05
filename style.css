@@ -580,3 +580,9 @@ a {
   display: block;
 }
 
+
+@media (max-width: 600px) {
+  .link-row {
+    gap: 20px;
+  }
+}
