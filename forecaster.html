@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PFS Exposure Time Forecaster</title>
+  <link rel="icon" type="image/png" href="/asterism.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .eet-box {
+      max-width: 480px;
+      margin: 40px auto;
+      font-family: monospace;
+      border: 1px solid var(--accent-color);
+      padding: 1.5em;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+    }
+    .eet-box h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+    .eet-box label {
+      display: block;
+      margin: 0.8em 0 0.2em;
+      font-weight: bold;
+    }
+    .eet-box input, .eet-box select {
+      width: 100%;
+      padding: 0.4em;
+      border-radius: 6px;
+      border: 1px solid #888;
+      background: #222;
+      color: white;
+    }
+    .eet-box button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      border: none;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .eet-box button:hover {
+      background: var(--accent-glow);
+    }
+    .eet-output {
+      margin-top: 1em;
+      background: rgba(0,0,0,0.5);
+      padding: 0.8em;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="asterism"></div>
+  <div class="border-line"></div>
+
+  <!-- 🔙 Back Button -->
+  <a href="index.html" class="back-button">
+    <div class="back-button-content">
+      <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
+      <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
+    </div>
+  </a>
+
+  <div class="content-container">
+    <div class="chat-wrapper">
+      <div class="eet-box">
+        <h3>PFS Exposure Time Forecaster</h3>
+        <label>Nominal Exposure Time (s)</label>
+        <input type="number" id="exp" value="400">
+        <label>Confidence Margin (α)</label>
+        <input type="number" step="0.1" id="alpha" value="1.0">
+        <label>Transparency</label>
+        <input type="number" step="0.01" id="transparency" value="0.95">
+        <label>Seeing (arcsec)</label>
+        <input type="number" step="0.01" id="seeing" value="0.7">
+        <label>Airmass</label>
+        <input type="number" step="0.01" id="airmass" value="1.2">
+        <label>Spectrograph Arm</label>
+        <select id="band">
+          <option value="b">B</option>
+          <option value="r">R</option>
+          <option value="n">N</option>
+          <option value="m">M</option>
+        </select>
+        <button onclick="predictEET()">Forecast Exposure Time</button>
+        <div class="eet-output" id="output"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const coef_dicts = {
+      b: { a1: 1.2696806863528614, a2: -2.106323158365758, a3: -1.7556127824415884, C: 0.7432252954294284, R: 0.10309221875453274, sig: 0.4506677234447454 },
+      r: { a1: 1.4232280279979215, a2: -1.5113077474009122, a3: -0.9417998970767805, C: 0.9208942028597735, R: 0.10907621213521586, sig: 0.40688407692311707 },
+      n: { a1: 1.2919900180039103, a2: -1.6678906693323015, a3: -0.941985220968768, C: 0.3927475916772579, R: 0.07774093313417012, sig: 0.3155015855300137 },
+      m: { a1: 1.2690462397366407, a2: -2.0328117574468525, a3: -1.714889119813842, C: 0.9663884531861622, R: 0.18323583992027026, sig: 0.5058370300121591 }
+    };
+
+    function predictEET() {
+      const exp = parseFloat(document.getElementById('exp').value)
+      const alpha = parseFloat(document.getElementById('alpha').value)
+      const t = parseFloat(document.getElementById('transparency').value)
+      const s = parseFloat(document.getElementById('seeing').value)
+      const a = parseFloat(document.getElementById('airmass').value)
+      const band = document.getElementById('band').value
+      const coef = coef_dicts[band]
+
+      if ([t, s, a].some(v => isNaN(v) || v <= 0)) {
+        document.getElementById('output').innerText = "Invalid input values."
+        return
+      }
+
+      const log_ratio = coef.a1 * Math.log(t) + coef.a2 * Math.log(s) + coef.a3 * Math.log(a) + Math.log(coef.C)
+      const ratP = Math.exp(log_ratio) + coef.R
+      const Texp = exp / ratP
+      const adjusted_ratio = Math.max(ratP - alpha * coef.sig, 1e-6)
+      const Texp_err = exp / adjusted_ratio
+
+      const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`
+      let warning = "";
+
+      let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`
+      if (ratP - alpha * coef.sig <= 0) {
+        adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
+        warning = `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — predicted time is unreliable</div>`
+      }
+
+      document.getElementById('output').innerHTML = `
+        <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
+        <div>${adjustedText}</div>
+        ${warning}`
+    }
+  </script>
+</body>
+</html>
+
+
