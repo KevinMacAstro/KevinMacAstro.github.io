@@ -525,6 +525,24 @@ a {
 }
 
 
+.glow-frame {
+  border: 2px solid var(--accent-glow, #00f1ff);
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 241, 255, 0.4);
+  transition: box-shadow 1.5s ease-in-out;
+}
 
+.glow-frame:hover {
+  animation: universalPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes universalPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px 2px rgba(0, 241, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(0, 241, 255, 0.9);
+  }
+}
 
 
