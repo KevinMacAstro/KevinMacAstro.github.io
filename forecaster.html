@@ -6,6 +6,23 @@
   <link rel="icon" type="image/png" href="/asterism.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    .forecast-button {
+       background-color: #00f1ff;
+       color: #000;
+       border: none;
+       padding: 10px 16px;
+       border-radius: 6px;
+       font-weight: bold;
+       cursor: pointer;
+       transition: background-color 0.3s ease, box-shadow 0.5s ease;
+       box-shadow: 0 0 6px rgba(0, 241, 255, 0.5);
+      }
+
+     .forecast-button:hover {
+        background-color: #00e1ef;
+        box-shadow: 0 0 12px rgba(0, 241, 255, 0.8);
+      }
+
     .eet-box {
       max-width: 480px;
       margin: 40px auto;
@@ -89,7 +106,7 @@
           <option value="n">N</option>
           <option value="m">M</option>
         </select>
-        <button onclick="predictEET()">Forecast Exposure Time</button>
+        <button class="forecast-button">Forecast Exposure Time</button> 
         <div class="eet-output" id="output"></div>
       </div>
      </div>
