@@ -580,6 +580,14 @@ a {
   display: block;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none; /* removes default browser outline */
+  box-shadow: 0 0 8px var(--accent-glow);
+  border: 1px solid var(--accent-glow);
+}
+
 input,
 select,
 textarea {
