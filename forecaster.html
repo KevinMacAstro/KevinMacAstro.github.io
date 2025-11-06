@@ -106,7 +106,7 @@
 
       <div class="eet-box">
         <h3>PFS Exposure Time Forecaster</h3>
-        <label>Nominal Exposure Time (s)</label>
+        <label>Target Effective Exposure Time (s)</label>
         <input type="number" id="exp" value="450">
         <label>Confidence Margin (α)</label>
         <input type="number" step="0.1" id="alpha" value="1.0">
@@ -125,10 +125,16 @@
         </select>
         <button onclick="predictEET()">Forecast Exposure Time</button>
         <div class="eet-output" id="output"></div>
+        <!-- Version footer -->
+        <div style="margin-top: 1em; font-size: 0.85em; color: #666; text-align: right;">
+         Version 1 (2025/11/06)
+        </div>
       </div>
-
     </div>
   </div>
+
+
+
 
   <script>
     const coef_dicts = {
