@@ -164,7 +164,7 @@
       let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`
       if (ratP - alpha * coef.sig <= 0) {
         adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
-        warning = `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — predicted time is unreliable</div>`
+        warning = `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — adjusted time is unreliable</div>`
       }
 
       document.getElementById('output').innerHTML = `
