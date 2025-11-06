@@ -14,7 +14,7 @@ body, html {
 /* Accent Variables */
 :root {
     --accent-color: rgba(0, 241, 255, 1);
-    --accent-glow: rgba(0, 241, 255, 0.5);
+    --accent-glow: rgba(0, 241, 255, 1);
     --accent-bg-hover: rgba(0, 241, 255, 0.3);
     --accent-bg-button: rgba(0, 241, 255, 0.2);
 }
