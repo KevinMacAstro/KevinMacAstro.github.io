@@ -197,7 +197,7 @@
 
     // Observatory exposure limit warning
     if (Texp > 900 || Texp_err > 900) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️ Warning: Exposure time exceeds 900 s — limit per visit at observatory</div>`;
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  : Exposure time exceeds observatory limit per visit of 900s!</div>`;
     }
 
     document.getElementById('output').innerHTML = `
