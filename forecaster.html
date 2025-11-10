@@ -157,49 +157,57 @@
 
 
 
-  <script>
-    const coef_dicts = {
-      b: { a1: 1.2696806863528614, a2: -2.106323158365758, a3: -1.7556127824415884, C: 0.7432252954294284, R: 0.10309221875453274, sig: 0.4506677234447454 },
-      r: { a1: 1.4232280279979215, a2: -1.5113077474009122, a3: -0.9417998970767805, C: 0.9208942028597735, R: 0.10907621213521586, sig: 0.40688407692311707 },
-      n: { a1: 1.2919900180039103, a2: -1.6678906693323015, a3: -0.941985220968768, C: 0.3927475916772579, R: 0.07774093313417012, sig: 0.3155015855300137 },
-      m: { a1: 1.2690462397366407, a2: -2.0328117574468525, a3: -1.714889119813842, C: 0.9663884531861622, R: 0.18323583992027026, sig: 0.5058370300121591 }
-    };
+<script>
+  const coef_dicts = {
+    b: { a1: 1.2696806863528614, a2: -2.106323158365758, a3: -1.7556127824415884, C: 0.7432252954294284, R: 0.10309221875453274, sig: 0.4506677234447454 },
+    r: { a1: 1.4232280279979215, a2: -1.5113077474009122, a3: -0.9417998970767805, C: 0.9208942028597735, R: 0.10907621213521586, sig: 0.40688407692311707 },
+    n: { a1: 1.2919900180039103, a2: -1.6678906693323015, a3: -0.941985220968768, C: 0.3927475916772579, R: 0.07774093313417012, sig: 0.3155015855300137 },
+    m: { a1: 1.2690462397366407, a2: -2.0328117574468525, a3: -1.714889119813842, C: 0.9663884531861622, R: 0.18323583992027026, sig: 0.5058370300121591 }
+  };
 
-    function predictEET() {
-      const exp = parseFloat(document.getElementById('exp').value)
-      const alpha = parseFloat(document.getElementById('alpha').value)
-      const t = parseFloat(document.getElementById('transparency').value)
-      const s = parseFloat(document.getElementById('seeing').value)
-      const a = parseFloat(document.getElementById('airmass').value)
-      const band = document.getElementById('band').value
-      const coef = coef_dicts[band]
+  function predictEET() {
+    const exp = parseFloat(document.getElementById('exp').value)
+    const alpha = parseFloat(document.getElementById('alpha').value)
+    const t = parseFloat(document.getElementById('transparency').value)
+    const s = parseFloat(document.getElementById('seeing').value)
+    const a = parseFloat(document.getElementById('airmass').value)
+    const band = document.getElementById('band').value
+    const coef = coef_dicts[band]
 
-      if ([t, s, a].some(v => isNaN(v) || v <= 0)) {
-        document.getElementById('output').innerText = "Invalid input values."
-        return
-      }
-
-      const log_ratio = coef.a1 * Math.log(t) + coef.a2 * Math.log(s) + coef.a3 * Math.log(a) + Math.log(coef.C)
-      const ratP = Math.exp(log_ratio) + coef.R
-      const Texp = exp / ratP
-      const adjusted_ratio = Math.max(ratP - alpha * coef.sig, 1e-6)
-      const Texp_err = exp / adjusted_ratio
-
-      const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`
-      let warning = "";
-
-      let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`
-      if (ratP - alpha * coef.sig <= 0) {
-        adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
-        warning = `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — adjusted time is unreliable</div>`
-      }
-
-      document.getElementById('output').innerHTML = `
-        <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
-        <div>${adjustedText}</div>
-        ${warning}`
+    if ([t, s, a].some(v => isNaN(v) || v <= 0)) {
+      document.getElementById('output').innerText = "Invalid input values."
+      return
     }
-  </script>
+
+    const log_ratio = coef.a1 * Math.log(t) + coef.a2 * Math.log(s) + coef.a3 * Math.log(a) + Math.log(coef.C)
+    const ratP = Math.exp(log_ratio) + coef.R
+    const Texp = exp / ratP
+    const adjusted_ratio = Math.max(ratP - alpha * coef.sig, 1e-6)
+    const Texp_err = exp / adjusted_ratio
+
+    const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`
+
+    let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`
+    let warning = ""
+
+    if (ratP - alpha * coef.sig <= 0) {
+      adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
+      warning += `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — adjusted time is unreliable</div>`
+    }
+
+    // Observatory exposure limit warning
+    if (Texp > 900 || Texp_err > 900) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️ Warning: Exposure time exceeds 900 s — limit per visit at observatory</div>`;
+    }
+
+    document.getElementById('output').innerHTML = `
+      <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
+      <div>${adjustedText}</div>
+      ${warning}`
+  }
+</script>
+
+
 </body>
 </html>
 
