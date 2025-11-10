@@ -192,12 +192,17 @@
 
     if (ratP - alpha * coef.sig <= 0) {
       adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
-      warning += `<div style='color: darkred; margin-top: 0.5em;'>Warning: margin too large — adjusted time is unreliable</div>`
+      warning += `<div style='color: darkred; margin-top: 0.5em;'>Warning: &alpha too large — Adjusted Time is unreliable</div>`
     }
 
     // Observatory exposure limit warning
-    if (Texp > 900 || Texp_err > 900) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  : Exposure time exceeds observatory limit per visit of 900s!</div>`;
+    if (Texp > 900) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp > 900s ! [obs. limit per visit]</div>`;
+    }
+
+    // Observatory exposure limit warning
+    if (Texp_err > 900) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp > 900s ! [obs. limit per visit]</div>`;
     }
 
     document.getElementById('output').innerHTML = `
