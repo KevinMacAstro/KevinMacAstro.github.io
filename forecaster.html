@@ -182,7 +182,7 @@
     const log_ratio = coef.a1 * Math.log(t) + coef.a2 * Math.log(s) + coef.a3 * Math.log(a) + Math.log(coef.C)
     const ratP = Math.exp(log_ratio) + coef.R
     const Texp = exp / ratP
-    const adjusted_ratio = Math.max(ratP - alpha * coef.sig, 1e-6)
+    const adjusted_ratio = ratP - alpha * coef.sig
     const Texp_err = exp / adjusted_ratio
 
     const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`
@@ -194,13 +194,30 @@
       adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
       warning += `<div style='color: darkred; margin-top: 0.5em;'>Warning: &alpha too large — Adjusted Time is unreliable</div>`
     }
-
-    // Observatory exposure limit warning
-    if (Texp > 900) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp > 900s ! [obs. limit per visit]</div>`;
+ 
+    if (ratP < 0.5) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp is unreliable (model extrapolating)!</div>`;
+    }
+    if (adjusted_ratio < 0.5) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp is unreliable (model extrapolating)!</div>`;
     }
 
-    // Observatory exposure limit warning
+    // Minimum exp time per visit
+    if (Texp_err < 10) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
+    } 
+    if (Texp < 10) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp < 10s ! [obs. min per visit]</div>`;
+    }
+    if (Texp_err < 10) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
+    }
+
+
+    // Maximum exp time per visit
+    if (Texp > 900) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp > 900s ! [obs. limit per visit]</div>`;
+    } 
     if (Texp_err > 900) {
       warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp > 900s ! [obs. limit per visit]</div>`;
     }
