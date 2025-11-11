@@ -202,13 +202,10 @@
     }
 
     // Minimum exp time per visit
-    if (Texp_err < 10) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
-    } 
     if (Texp < 10) {
       warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp < 10s ! [obs. min per visit]</div>`;
     }
-    if (Texp_err < 10) {
+    if (Texp_err < 10 && Number.isFinite(Texp_err)) {
       warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
     }
 
