@@ -188,44 +188,48 @@
     const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`
 
     let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`
-    let warning = ""
 
-    if (ratP - alpha * coef.sig <= 0) {
-      adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
-      warning += `<div style='color: darkred; margin-top: 0.5em;'>Warning: &alpha too large — Adjusted Time is unreliable</div>`
-    }
- 
-    if (ratP < 0.5) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp is unreliable (model extrapolating)!</div>`;
-    }
-    if (adjusted_ratio < 0.5) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp is unreliable (model extrapolating)!</div>`;
-    }
+let warnings = [];
 
-    // Minimum exp time per visit
-    if (Texp_err < 10) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
-    } 
-    if (Texp < 10) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp < 10s ! [obs. min per visit]</div>`;
-    }
-    if (Texp_err < 10) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 10s ! [obs. min per visit]</div>`;
-    }
+if (ratP - alpha * coef.sig <= 0) {
+  adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> &infin;`
+  warnings.push(`Warning: &alpha; too large — Adjusted Time is unreliable`);
+}
+
+if (ratP < 0.5) {
+  warnings.push(`⚠️  :  Predicted T<sub>exp</sub> is unreliable (model extrapolating)!`);
+}
+
+if (adjusted_ratio < 0.5) {
+  warnings.push(`⚠️  :  Adjusted T<sub>exp</sub> is unreliable (model extrapolating)!`);
+}
+
+if (Texp_err < 10) {
+  warnings.push(`⚠️  :  Adjusted T<sub>exp</sub> &lt; 10s ! [obs. min per visit]`);
+}
+
+if (Texp < 10) {
+  warnings.push(`⚠️  :  Predicted T<sub>exp</sub> &lt; 10s ! [obs. min per visit]`);
+}
+
+if (Texp > 900) {
+  warnings.push(`⚠️  :  Predicted T<sub>exp</sub> &gt; 900s ! [obs. limit per visit]`);
+}
+
+if (Texp_err > 900) {
+  warnings.push(`⚠️  :  Adjusted T<sub>exp</sub> &gt; 900s ! [obs. limit per visit]`);
+}
+
+let warningHTML = warnings.map(w => `<div class='warn-line'>${w}</div>`).join("");
+
+document.getElementById('output').innerHTML = `
+  <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
+  <div>${adjustedText}</div>
+  <div class='warning-block'>${warningHTML}</div>
+`;
 
 
-    // Maximum exp time per visit
-    if (Texp > 900) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp > 900s ! [obs. limit per visit]</div>`;
-    } 
-    if (Texp_err > 900) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp > 900s ! [obs. limit per visit]</div>`;
-    }
 
-    document.getElementById('output').innerHTML = `
-      <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
-      <div>${adjustedText}</div>
-      ${warning}`
   }
 </script>
 
