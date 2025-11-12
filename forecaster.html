@@ -184,7 +184,7 @@
 
     const label = alpha >= 0 ? `eet/exp − ${alpha}&sigma;` : `eet/exp + ${Math.abs(alpha)}&sigma;`;
 
-    let adjustedText = `<strong>Adjusted Exposure Time (${label}):</strong> ${Texp_err.toFixed(1)} s`;
+    let adjustedText = `<strong>Adjusted T<sub>exp</sub> (${label}):</strong> ${Texp_err.toFixed(1)} s`;
     let warning = "";
     let warnings = [];
 
@@ -220,7 +220,7 @@
     let warningHTML = warnings.map(w => `<div class='warn-line'>${w}</div>`).join("");
 
     document.getElementById('output').innerHTML = `
-      <div><strong>Predicted Exposure Time:</strong> ${Texp.toFixed(1)} s</div>
+      <div><strong>T<sub>exp</sub>:</strong> ${Texp.toFixed(1)} s</div>
       <div>${adjustedText}</div>
       <div class='warning-block'>${warning}${warningHTML}</div>
     `;
