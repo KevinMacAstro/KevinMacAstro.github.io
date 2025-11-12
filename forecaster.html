@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="/asterism.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .forecast-button {
+     .forecast-button {
        background-color: #00f1ff;
        color: #000;
        border: none;
@@ -16,38 +16,36 @@
        cursor: pointer;
        transition: background-color 0.3s ease, box-shadow 0.5s ease;
        box-shadow: 0 0 6px rgba(0, 241, 255, 0.5);
-      }
+     }
 
-     .forecast-button:hover {
-        background-color: #00e1ef;
-        box-shadow: 0 0 12px rgba(0, 241, 255, 0.8);
-      }
-
+    .forecast-button:hover {
+       background-color: #00e1ef;
+       box-shadow: 0 0 12px rgba(0, 241, 255, 0.8);
+     }
  
-      .eet-box {
-        width: 100%;
-        max-width: 450px;
-        padding: 20px;
-        border: 2px solid var(--accent-glow);
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.85);
-        box-shadow: 0 0 10px var(--accent-glow);
-        color: white;
-        font-family: monospace;
-        text-align: left;
-        transition: all 0.3s ease-in-out;
-        }
-
+    .eet-box {
+       width: 100%;
+       max-width: 450px;
+       padding: 20px;
+       border: 2px solid var(--accent-glow);
+       border-radius: 10px;
+       background-color: rgba(0, 0, 0, 0.85);
+       box-shadow: 0 0 10px var(--accent-glow);
+       color: white;
+       font-family: monospace;
+       text-align: left;
+       transition: all 0.3s ease-in-out;
+     }
 
     .eet-box h3 {
       margin-top: 0;
       text-align: center;
-    }
+     }
     .eet-box label {
       display: block;
       margin: 0.8em 0 0.2em;
       font-weight: bold;
-    }
+     }
     .eet-box input, .eet-box select {
       width: 100%;
       padding: 0.4em;
@@ -55,57 +53,55 @@
       border: 1px solid #888;
       background: #222;
       color: white;
-    }
-
-     .eet-box button {
-       background-color: #00ccff;
-       color: black;
-       padding: 10px;
-       border: none;
-       border-radius: 6px;
-       cursor: pointer;
-       box-shadow: 0 0 8px var(--accent-glow);
-       transition: background-color 0.3s ease, box-shadow 0.3s ease;
      }
 
-     .eet-box button:hover {
-       background-color: #00b8e6;
-       box-shadow: 0 0 12px var(--accent-glow);
-      }
+    .eet-box button {
+      background-color: #00ccff;
+      color: black;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--accent-glow);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     }
 
-.eet-box button {
-  background-color: var(--accent-glow);
-  color: black;
-  font-family: monospace;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
-}
+    .eet-box button:hover {
+      background-color: #00b8e6;
+      box-shadow: 0 0 12px var(--accent-glow);
+     }
 
-.eet-box button:hover {
-  box-shadow: 0 0 5px var(--accent-glow);
-}
+    .eet-box button {
+      background-color: var(--accent-glow);
+      color: black;
+      font-family: monospace;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+     }
 
+    .eet-box button:hover {
+      box-shadow: 0 0 5px var(--accent-glow);
+     }
 
-
-      .eet-output {
-         background-color: rgba(255, 255, 255, 0.05);
-         padding: 10px;
-         border-radius: 6px;
-         margin-top: 10px;
-         line-height: 0.5;              /* Tighten vertical spacing */
-         min-height: 1.2em;             /* Less reserved height before output */
-         font-size: 0.9em;
-         font-family: monospace;
-         white-space: pre-wrap;
-       }
-
-      .eet-output p {
-          margin: 2px 0;                 /* Reduce margin between lines if using <p> */
-      }
+    .eet-output {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      line-height: 0.5;              /* Tighten vertical spacing */
+      min-height: 1.2em;             /* Less reserved height before output */
+      font-size: 0.9em;
+      font-family: monospace;
+      white-space: pre-wrap;
+     }
+    
+    .eet-output p {
+      margin: 2px 0;                 /* Reduce margin between lines if using <p> */
+    }
   </style>
 </head>
 
