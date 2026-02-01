@@ -322,7 +322,7 @@ body.front-page .content-container {
   display: flex;
   justify-content: center; 
   align-items: center;
-  width: 100%;  /* ← remove max-width */
+  width: 600px;  /* ← remove max-width */
   gap: 10px;
 }
 
