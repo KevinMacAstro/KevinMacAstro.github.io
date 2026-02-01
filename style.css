@@ -597,8 +597,7 @@ a {
   justify-content: center;
   align-items: center;
   /* min-height: 100vh here */
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
   position: relative;
