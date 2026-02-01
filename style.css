@@ -593,6 +593,7 @@ a {
 /* Ensure the inner container doesn't force extra space */
 .content-containerF {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* REMOVED min-height: 100vh here */
