@@ -29,6 +29,20 @@ body, html {
   }
 }
 
+
+
+.page-wrapper {
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background); /* your current patterned background */
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+
 .glow-hover {
   box-shadow: none;
   transition: box-shadow 1.4s ease-out;
@@ -298,13 +312,13 @@ body.front-page .content-container {
   white-space: pre-wrap;
 }
 
+
 .chat-wrapper {
   margin-top: 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: center; 
   align-items: center;
-  max-width: 600px;
-  width: 100%;
+  width: 100%;  /* ← remove max-width */
   gap: 10px;
 }
 
@@ -555,16 +569,45 @@ a {
   }
 }
 
+
+.gif_wrapper {
+  display: grid;
+  grid-template-rows: auto auto; /* Two rows that size to their content */
+  gap: 0px; /* Space between the widget row and the gif row */
+  align-items: center; /* Vertically center content if small */
+  justify-items: center; /* Horizontally center content */
+
+  /* We remove min-height: 100vh again to prevent excessive spacing */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 40px 20px;
+}
+
+/* Ensure the inner container doesn't force extra space */
 .content-containerF {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* REMOVED min-height: 100vh here */
   width: 100%;
-  padding: 40px 20px;
   box-sizing: border-box;
   position: relative;
 }
+
+#conditions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* Center children horizontally */
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
 
 .logo-container {
   display: flex;

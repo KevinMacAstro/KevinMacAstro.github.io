@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ʻŌnohiʻula PFS SSP Visit Conditions</title>
+  <link rel="icon" type="image/png" href="/asterism.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    .conditions-box {
+        margin: 0 auto;  
+        width: 100%;
+        max-width: 1100px; /* change as needed */
+        padding: 20px;
+        border: 2px solid var(--accent-glow);
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 0 10px var(--accent-glow);
+        color: white;
+        font-family: monospace;
+        text-align: center;
+    }
+
+    .conditions-box input {
+        padding: 8px;
+        width: 200px;
+        border-radius: 6px;
+        border: 1px solid #888;
+        background: #222;
+        color: white;
+        font-size: 1em;
+    }
+
+
+    .conditions-box button {
+      background-color: #00ccff;
+      color: black;
+      padding: 10px 16px;
+      margin-left: 10px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .conditions-box button:hover {
+      background-color: #00b8e6;
+    }
+
+.gif-display {
+  display: flex;
+  flex-direction: column; /* Stack vertically if needed within the box */
+  align-items: center;    /* Center the contents (h3, p, input, gif) horizontally */
+  width: 100%;            /* Ensure these containers take up the full available width */
+  text-align: center;     /* A fallback for text alignment in older elements */
+}
+
+.gif-display img {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95vw; /* Let it stretch nearly full window width */
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 241, 255, 0.3);
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="asterism"></div>
+  <div class="border-line"></div>
+
+  <div class="mask-top"></div>
+  <div class="mask-bottom"></div>
+  <div class="mask-left"></div>
+  <div class="mask-right"></div>
+
+
+
+  <!-- 🔙 Back Button -->
+  <a href="index.html" class="back-button">
+    <div class="back-button-content">
+      <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
+      <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
+    </div>
+  </a>
+
+  
+  <div class="content-containerF" id="outContainer">
+   <div id="conditions-wrapper">
+
+       <div class="chat-wrapper">
+        <div class="conditions-box">
+         <h3>ʻŌnohiʻula PFS SSP Visit Conditions</h3>
+         <p>Enter a visit number to view the GOES-18 infrared (CH13; Upper row) and water vapor (CH08; Bottom row) satellite images during the exposure:</p>
+         <input type="number" id="visitInput" placeholder="e.g. 123456" />
+         <button onclick="showGif()">Submit</button>
+        </div> 
+       </div>
+    
+       <div class="gif-display" id="gifContainer"></div>
+  
+   </div>
+  </div>
+
+<script>
+  const originalInputHTML = `
+    <div class="chat-wrapper">
+      <div class="conditions-box">
+        <h3>ʻŌnohiʻula PFS SSP Visit Conditions</h3>
+        <p>Enter a visit number to view the GOES-18 infrared (CH13; Upper row) and water vapor (CH08; Bottom row) satellite images during the exposure:</p>
+        <input type="number" id="visitInput" placeholder="e.g. 123456" />
+        <button onclick="showGif()">Submit</button>
+      </div>
+    </div>
+  `;
+
+  function showGif() {
+    const visit = document.getElementById('visitInput').value.trim();
+    const container = document.getElementById('outContainer');
+
+    if (!visit || isNaN(visit)) {
+      container.innerHTML = `<p style="color: red;">Please enter a valid visit number.</p>`;
+      return;
+    }
+
+    const gifPath = `visit_gifs/visit_${visit}.gif`;
+
+    container.innerHTML = `
+      <div class="gif-display" style="text-align: center;">
+        <img src="${gifPath}" alt="Visit ${visit} conditions animation"
+             style="width: 100%; max-width: 1200px;"
+             onerror="this.onerror=null; this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=\\'color:red;\\'>GIF not found for visit ${visit}.</p>');">
+        <div style="margin-top: 20px;">
+          <button onclick="goBack()" style="background-color: #00ccff; color: black; padding: 10px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; box-shadow: 0 0 8px #00ccff;">
+            ← Back
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  function goBack() {
+    const container = document.getElementById('outContainer');
+    container.innerHTML = originalInputHTML;
+  }
+</script>
+ 
+
+</body>
+</html>
+
