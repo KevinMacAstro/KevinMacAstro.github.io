@@ -596,7 +596,9 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* REMOVED min-height: 100vh here */
+  /* min-height: 100vh here */
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   box-sizing: border-box;
   position: relative;
