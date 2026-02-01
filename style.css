@@ -173,7 +173,7 @@ body.front-page .content-container {
 .content-container {
   justify-content: center;
   width: 100%;
-  max-width: 1200px; /* optional */
+  max-width: 600px; /* optional */
   margin: 0 auto;
   padding: 40px 20px;
   box-sizing: border-box;
