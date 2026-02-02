@@ -58,7 +58,7 @@ body, html {
 .mask-right {
   position: fixed;
   background-color: #111; /* match background */
-  z-index: 20;
+  z-index: 1000;
   pointer-events: none; /* let clicks pass through */
 }
 
@@ -441,7 +441,7 @@ a {
   position: absolute;
   top: 40px;
   left: 40px;
-  z-index: 1000;
+  z-index: 1;
   display: flex;
   align-items: center;        /* Aligns items vertically in the center */
   gap: 10px;                  /* Space between icon and text */
@@ -457,6 +457,7 @@ a {
 .back-button .back-icon {
   height: 40px;
   width: auto;
+  z-index: 1; 
   display: inline-block;
   vertical-align: middle;
   transition: filter 0.5s ease-in-out;
@@ -466,6 +467,7 @@ a {
 .back-button .back-text {
   height: auto; /* Match this better to icon size */
   width: 140px;
+  z-index: 1;
   display: inline-block;
   vertical-align: middle;
   transition: filter 0.5s ease;
@@ -474,7 +476,9 @@ a {
 /* Glow on hover — only for the asterism */
 .back-button:hover .back-icon {
   filter: drop-shadow(0 10px 2px var(--accent-glow));
+  z-index: 1;
 }
+
 
 /* Container for horizontal scroll or row layout */
 .talk-grid {
@@ -595,18 +599,22 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   min-height: 100vh; 
+  z-index: 10;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
   position: relative;
 }
 
+
+
 #conditions-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;      /* Center children horizontally */
+  z-index: 2;
   justify-content: flex-start;
   width: 100%;
   margin-left: auto;

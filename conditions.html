@@ -15,6 +15,7 @@
         border: 2px solid var(--accent-glow);
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.85);
+        z-index: 100;
         box-shadow: 0 0 10px var(--accent-glow);
         color: white;
         font-family: monospace;
@@ -52,18 +53,22 @@
   display: flex;
   flex-direction: column; /* Stack vertically if needed within the box */
   align-items: center;    /* Center the contents (h3, p, input, gif) horizontally */
-  width: 100%;            /* Ensure these containers take up the full available width */
+  z-index: 4;
+  width: 90%;            /* Ensure these containers take up the full available width */
   text-align: center;     /* A fallback for text alignment in older elements */
+  position: relative;
 }
 
 .gif-display img {
   width: 100%;
   margin-left: auto;
+  z-index: 4;
   margin-right: auto;
   max-width: 95vw; /* Let it stretch nearly full window width */
   height: auto;
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 241, 255, 0.3);
+  position: relative;
 }
 
 
@@ -83,15 +88,6 @@
 
 
 
-  <!-- 🔙 Back Button -->
-  <a href="index.html" class="back-button">
-    <div class="back-button-content">
-      <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
-      <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
-    </div>
-  </a>
-
-  
   <div class="content-containerF" id="outContainer">
    <div id="conditions-wrapper">
 
@@ -101,13 +97,23 @@
          <p>Enter a visit number to view the GOES-18 infrared (CH13; Upper row) and water vapor (CH08; Bottom row) satellite images during the exposure:</p>
          <input type="number" id="visitInput" placeholder="e.g. 123456" />
          <button onclick="showGif()">Submit</button>
-        </div> 
+        </div>
        </div>
-    
+
        <div class="gif-display" id="gifContainer"></div>
-  
+
    </div>
   </div>
+
+
+  <!-- 🔙 Back Button -->
+  <a href="index.html" class="back-button">
+    <div class="back-button-content">
+      <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
+      <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
+    </div>
+  </a>
+
 
 <script>
   const originalInputHTML = `
@@ -122,11 +128,26 @@
   `;
 
   function showGif() {
-    const visit = document.getElementById('visitInput').value.trim();
+    const visit = document.getElementById('visitInput')?.value.trim();
     const container = document.getElementById('outContainer');
 
+    // ❌ Invalid or empty input → show error + back button
     if (!visit || isNaN(visit)) {
-      container.innerHTML = `<p style="color: red;">Please enter a valid visit number.</p>`;
+      container.innerHTML = `
+        <div style="text-align: center;">
+          <p style="color: red; font-weight: bold;">
+            Please enter a valid visit number.
+          </p>
+          <div style="margin-top: 20px;">
+            <button onclick="goBack()"
+              style="background-color: #00ccff; color: black; padding: 10px 20px;
+                     font-weight: bold; border: none; border-radius: 6px;
+                     cursor: pointer; box-shadow: 0 0 8px #00ccff;">
+              ← Back
+            </button>
+          </div>
+        </div>
+      `;
       return;
     }
 
@@ -135,13 +156,24 @@
     container.innerHTML = `
       <div class="gif-display" style="text-align: center;">
         <div style="margin-bottom: 20px;">
-          <button onclick="goBack()" style="background-color: #00ccff; color: black; padding: 10px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; box-shadow: 0 0 8px #00ccff;">
+          <button onclick="goBack()"
+            style="background-color: #00ccff; color: black; padding: 10px 20px;
+                   font-weight: bold; border: none; border-radius: 6px;
+                   cursor: pointer; box-shadow: 0 0 8px #00ccff;">
             ← Back
           </button>
         </div>
+
         <img src="${gifPath}" alt="Visit ${visit} conditions animation"
              style="width: 100%; max-width: 1200px;"
-             onerror="this.onerror=null; this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=\\'color:red;\\'>GIF not found for visit ${visit}.</p>');">
+             onerror="
+               this.onerror=null;
+               this.style.display='none';
+               this.insertAdjacentHTML(
+                 'afterend',
+                 '<p style=\\'color:red;\\'>GIF not found for visit ${visit}.</p>'
+               );
+             ">
       </div>
     `;
   }
@@ -151,6 +183,7 @@
     container.innerHTML = originalInputHTML;
   }
 </script>
+
 
 </body>
 </html>
