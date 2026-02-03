@@ -596,6 +596,7 @@ a {
 
 /* Ensure the inner container doesn't force extra space */
 .content-containerF {
+  margin-top: 20px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
