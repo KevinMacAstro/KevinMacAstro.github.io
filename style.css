@@ -614,7 +614,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;      /* Center children horizontally */
-  z-index: 2;
+  z-index: 1;
   justify-content: flex-start;
   width: 100%;
   margin-left: auto;
