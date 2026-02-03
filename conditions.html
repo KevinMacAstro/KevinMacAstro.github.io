@@ -106,13 +106,13 @@
   </div>
 
 
-  <!-- 🔙 Back Button -->
-  <a href="index.html" class="back-button">
-    <div class="back-button-content">
-      <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
-      <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
-    </div>
-  </a>
+<!-- 🔙 Main Back Button -->
+<a href="index.html" class="back-button" id="mainBackButton">
+  <div class="back-button-content">
+    <img src="back_asterism.png" class="back-icon" alt="Back Icon" />
+    <img src="headerFONT_subpage.png" class="back-text" alt="Back Text" />
+  </div>
+</a>
 
 
 <script>
@@ -130,6 +130,13 @@
   function showGif() {
     const visit = document.getElementById('visitInput')?.value.trim();
     const container = document.getElementById('outContainer');
+    const mainBackButton = document.getElementById('mainBackButton');
+
+     // 🔕 Hide main back button when GIF view is active
+     if (mainBackButton) {
+       mainBackButton.style.display = 'none';
+     }
+
 
     // ❌ Invalid or empty input → show error + back button
     if (!visit || isNaN(visit)) {
@@ -178,10 +185,19 @@
     `;
   }
 
-  function goBack() {
-    const container = document.getElementById('outContainer');
-    container.innerHTML = originalInputHTML;
+function goBack() {
+  const container = document.getElementById('outContainer');
+  const mainBackButton = document.getElementById('mainBackButton');
+
+  container.innerHTML = originalInputHTML;
+
+  // 🔔 Show main back button again
+  if (mainBackButton) {
+    mainBackButton.style.display = '';
   }
+}
+
+
 </script>
 
 
