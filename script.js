@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         await sleep(450);
       }
 
-      const remaining = Math.max(0, 10000 - (Date.now() - started));
+      const remaining = Math.max(0, 15000 - (Date.now() - started));
       await sleep(remaining);
 
       if (active) await typeLine('The server is waking up; this can take up to one minute.');
