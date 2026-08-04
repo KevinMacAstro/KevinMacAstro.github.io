@@ -706,14 +706,6 @@ textarea {
   font-weight: 600;
 }
 
-.tool-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  flex-wrap: wrap;
-  margin: 1rem auto;
-}
 
 
 
