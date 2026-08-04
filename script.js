@@ -45,43 +45,115 @@ document.querySelectorAll('.glow-hover').forEach(el => {
   });
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById("chat-form");
-    const input = document.getElementById("user-input");
-    const chat = document.getElementById("chat-output");
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('user-input');
+  const chat = document.getElementById('chat-output');
+  const submit = document.getElementById('chat-submit');
 
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const userMessage = input.value.trim();
-        if (!userMessage) return;
+  if (!form || !input || !chat) return;
 
-        // 👉 Make the chat box visible when a question is submitted
-        chat.style.display = 'block';
+  const PAPER_BOT_URL = 'https://kevinmacastro-paper-bot.onrender.com/chat';
 
-        // Append user message
-        chat.innerHTML += `<div class="user"><strong>Interlocutor:</strong> ${userMessage}</div>`;
-        input.value = "";
+  const paperMetadata = {
+    McCarthy2019_GalAB_pp: {
+      citation: 'McCarthy, Zheng & Guo (2019)',
+      title: 'The Effects of Galaxy Assembly Bias on the Inference of Growth Rate from Redshift-Space Distortions',
+      pdf: 'papers/McCarthy2019_GalAB_pp.pdf'
+    },
+    McCarthy2020_BNSM_pp: {
+      citation: 'McCarthy et al. (2020)',
+      title: 'McCarthy et al. (2020)',
+      pdf: 'papers/McCarthy2020_BNSM_pp.pdf'
+    },
+    McCarthy2022_GalAB_Data_pp: {
+      citation: 'McCarthy et al. (2022)',
+      title: 'On the Constraints of Galaxy Assembly Bias in Velocity Space',
+      pdf: 'papers/McCarthy2022_GalAB_Data_pp.pdf'
+    },
+    McCarthy2023_HaPK_pp: {
+      citation: 'McCarthy, Zhai & Wang (2023)',
+      title: 'McCarthy, Zhai & Wang (2023)',
+      pdf: 'papers/McCarthy2023_HaPK_pp.pdf'
+    }
+  };
 
-        try {
-            const res = await fetch("https://gpt4-paper-bot.onrender.com/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ query: userMessage })
-            });
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
 
-            const data = await res.json();
-            chat.innerHTML += `<div class="bot"><strong>Research Assistant:</strong> ${data.response}</div>`;
-            chat.scrollTop = chat.scrollHeight;
+    const query = input.value.trim();
+    if (!query) return;
 
-        } catch (error) {
-            console.error("Error communicating with backend:", error);
-            chat.innerHTML += `<div class="bot"><strong>Research Assistant:</strong> Sorry, something went wrong.</div>`;
-        }
-    });
+    chat.style.display = 'block';
+    chat.innerHTML = `
+      <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
+      <div class="bot">
+        <strong>Research Assistant:</strong>
+        <p>Searching my papers… The free server may take up to a minute to wake.</p>
+      </div>
+    `;
+
+    input.disabled = true;
+    if (submit) submit.disabled = true;
+
+    try {
+      const response = await fetch(PAPER_BOT_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({query})
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'The assistant could not answer the question.');
+
+      const sources = data.sources.map(source => {
+        const metadata = paperMetadata[source.paper] || {
+          citation: source.paper,
+          title: source.paper,
+          pdf: '#'
+        };
+
+        const pages = source.page_start === source.page_end ? `p. ${source.page_start}` : `pp. ${source.page_start}–${source.page_end}`;
+
+        return `
+          <li>
+            <a href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener">
+              <strong>${metadata.citation}</strong>, ${pages}
+            </a>
+            <span>${metadata.title}</span>
+          </li>
+        `;
+      }).join('');
+
+      chat.innerHTML = `
+        <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
+        <div class="bot">
+          <strong>Research Assistant:</strong>
+          <div class="answer-text">${escapeHtml(data.answer).replace(/\n/g, '<br>')}</div>
+          <h3>Sources</h3>
+          <ol class="source-list">${sources}</ol>
+        </div>
+      `;
+    } catch (error) {
+      console.error('Error communicating with backend:', error);
+      chat.innerHTML += `
+        <div class="bot">
+          <strong>Research Assistant:</strong>
+          Sorry, something went wrong: ${escapeHtml(error.message)}
+        </div>
+      `;
+    } finally {
+      input.disabled = false;
+      if (submit) submit.disabled = false;
+      input.value = '';
+      input.focus();
+      chat.scrollTop = chat.scrollHeight;
+    }
+  });
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
 });
-
-
-
