@@ -149,38 +149,34 @@ body, html {
   z-index: -1;
 }
 
-
 .content-wrapper {
-  padding: 40px 20px;
   width: 100%;
+  min-height: 100vh;
+  padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body.front-page .content-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  min-height: 100vh;         /* stretch full viewport */
+  justify-content: center;   /* vertical, because flex-direction is column */
+  align-items: center;       /* horizontal */
   width: 100%;
+  min-height: 0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .content-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  min-height: 100vh;         /* stretch full viewport */
   width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .border-line {
   position: fixed;
@@ -316,16 +312,16 @@ body.front-page .content-container {
   white-space: pre-wrap;
 }
 
-
 .chat-wrapper {
-  margin-top: 50px;
-  flex-direction: column;
   display: flex;
-  justify-content: center; 
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 600px;  /* ← remove max-width */
+  width: min(600px, 100%);
+  margin: 0;
   gap: 10px;
 }
+
 
 a {
     text-decoration: none;
