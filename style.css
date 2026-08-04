@@ -29,6 +29,23 @@ body, html {
   }
 }
 
+
+.tools-page-section {
+  width: fit-content;
+  max-width: 92vw;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.tools-page-section .tool-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
 .tool-buttons{
     display:flex;
     justify-content:center;
