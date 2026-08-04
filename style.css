@@ -711,9 +711,11 @@ textarea {
   border-bottom: 1px solid rgba(75, 235, 255, 0.35);
 }
 
-#chat-output .bot {
-  min-height: 0;
-  padding: 1.25rem 0;
+#chat-output .bot > strong {
+  display: block !important;
+  width: 100%;
+  text-align: left !important;
+  margin: 0 0 0.8rem 0;
 }
 
 #chat-output .answer-text {
