@@ -667,6 +667,22 @@ textarea {
   }
 }
 
+
+.profile-photo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:2rem;
+}
+
+.profile-photo img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #55eaff;
+}
+
+
 /* Paper assistant output overrides */
 #chat-output {
   display: none;
@@ -773,5 +789,6 @@ textarea {
 #chat-output .inline-citation:hover {
   text-decoration: underline;
 }
+
 
 
