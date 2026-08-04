@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
       <div class="bot">
         <strong>Research Assistant:</strong>
-        <p>Searching my papers… The free server may take up to a minute to wake.</p>
+        <p>Searching my papers… The server may take up to a minute to wake.</p>
       </div>
     `;
 
