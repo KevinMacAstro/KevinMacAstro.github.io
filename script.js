@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
         <div class="bot">
           <strong>Research Assistant:</strong>
-          <div class="answer-text">${escapeHtml(cleanAnswer).replace(/\n/g, '<br>')}</div> 
+          <div class="answer-text">${renderAnswerWithCitations(data.answer,data.sources)}</div> 
           <h3>Sources</h3>
           <ol class="source-list">${sources}</ol>
         </div>
@@ -154,6 +154,41 @@ document.addEventListener('DOMContentLoaded', function () {
       //chat.scrollTop = chat.scrollHeight;
     }
   });
+
+
+function renderAnswerWithCitations(answer, sources) {
+
+  const sourceMap = new Map();
+
+  for (const source of sources) {
+    const n = parseInt(source.label.replace(/\D/g,''),10);
+    sourceMap.set(n, source);
+  }
+
+  let html = escapeHtml(answer);
+
+  html = html.replace(/\[([^\]]*SOURCE[^\]]*)\]/g, function(match, inside){
+
+    const nums = [...inside.matchAll(/SOURCE\s+(\d+)/g)].map(x=>parseInt(x[1],10));
+
+    const links = nums.map(function(n){
+
+      const source = sourceMap.get(n);
+      if (!source) return n;
+
+      const meta = paperMetadata[source.paper];
+
+      return `<a class="inline-citation" href="${meta.pdf}#page=${source.page_start}" target="_blank" title="${meta.citation}, pp. ${source.page_start}-${source.page_end}">${n}</a>`;
+
+    });
+
+    return `[${links.join(", ")}]`;
+
+  });
+
+  return html.replace(/\n/g,"<br>");
+}
+
 
   function escapeHtml(text) {
     const div = document.createElement('div');

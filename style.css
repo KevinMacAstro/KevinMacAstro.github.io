@@ -761,3 +761,16 @@ textarea {
   font-size: 0.9rem;
   line-height: 1.25;
 }
+
+
+.inline-citation{
+    color:#55eaff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.inline-citation:hover{
+    text-decoration:underline;
+}
+
+
