@@ -29,7 +29,18 @@ body, html {
   }
 }
 
+.tool-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
 
+.tool-buttons .glow-link-box{
+    flex:0 0 auto;
+}
 
 .page-wrapper {
   max-width: 100%;
