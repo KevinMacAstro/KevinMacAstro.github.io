@@ -106,6 +106,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'The assistant could not answer the question.');
 
+      // Remove inline [SOURCE X] citations since we show a proper source list below.
+
+      const cleanAnswer = data.answer.replace(/\s*\[(SOURCE[^\]]+)\]/g, '');
+
       const sources = data.sources.map(source => {
         const metadata = paperMetadata[source.paper] || {
           citation: source.paper,
@@ -129,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
         <div class="bot">
           <strong>Research Assistant:</strong>
-          <div class="answer-text">${escapeHtml(data.answer).replace(/\n/g, '<br>')}</div>
+          <div class="answer-text">${escapeHtml(cleanAnswer).replace(/\n/g, '<br>')}</div> 
           <h3>Sources</h3>
           <ol class="source-list">${sources}</ol>
         </div>
