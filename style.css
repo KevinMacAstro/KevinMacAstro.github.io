@@ -671,16 +671,16 @@ textarea {
 .profile-photo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
 
 .profile-photo img {
   display: block;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border: 3px solid #55eaff !important;
-  border-radius: 12px;
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  border: 3px solid #55eaff;
+  border-radius: 6px;
   box-sizing: border-box;
   box-shadow: none !important;
   filter: none !important;
