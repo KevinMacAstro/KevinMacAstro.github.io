@@ -119,13 +119,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const pages = source.page_start === source.page_end ? `p. ${source.page_start}` : `pp. ${source.page_start}–${source.page_end}`;
 
+        const sourceNumber = Number(source.label.replace(/\D/g, ''));
+        
         return `
-          <li>
-            <a href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener">
-              <strong>${metadata.citation}</strong>, ${pages}
-            </a>
-            <span>${metadata.title}</span>
-          </li>
+         <div class="source-entry">
+           <a href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener">
+             <strong>[${sourceNumber}] ${metadata.citation}</strong>, ${pages}
+           </a>
+           <span>${metadata.title}</span>
+         </div>
         `;
       }).join('');
 
@@ -135,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <strong>Research Assistant:</strong>
           <div class="answer-text">${renderAnswerWithCitations(data.answer,data.sources)}</div> 
           <h3>Sources</h3>
-          <ol class="source-list">${sources}</ol>
+          <div class="source-list">${sources}</div> 
         </div>
       `;
     } catch (error) {

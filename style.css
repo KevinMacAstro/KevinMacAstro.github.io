@@ -741,46 +741,36 @@ textarea {
 
 #chat-output .source-list {
   display: block;
-  width: auto;
   margin: 0;
-  padding-left: 1.2rem;
-  text-align: left;
-  list-style-position: outside;
-}
-
-#chat-output .source-list li {
-  display: list-item;
-  width: auto;
-  min-height: 0;
-  margin: 0 0 0.1rem;
   padding: 0;
-  line-height: 1.15;
-  text-align: left;
-  background: none;
-  border: 0;
-  box-shadow: none;
 }
 
-#chat-output .source-list a {
+#chat-output .source-entry {
+  display: block;
+  margin: 0 0 0.65rem;
+  padding: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+#chat-output .source-entry a {
   display: inline;
   color: #55eaff;
   text-decoration: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
-  text-align: left;
 }
 
-#chat-output .source-list a:hover {
-  text-decoration: underline;
+#chat-output .source-entry a:hover {
+  text-decoration: underline !important;
 }
 
-#chat-output .source-list span {
+#chat-output .source-entry span {
   display: block;
-  margin: 0;
+  margin: 0.1rem 0 0;
   color: rgba(255,255,255,0.75);
-  text-align: left;
   font-size: 0.9rem;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 #chat-output .inline-citation {
