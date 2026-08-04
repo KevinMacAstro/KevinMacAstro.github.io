@@ -31,6 +31,14 @@ window.addEventListener('load', function() {
   }
 });
 
+document.getElementById('user-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    document.getElementById('chat-form').requestSubmit();
+  }
+});
+
+
 document.querySelectorAll('.glow-hover').forEach(el => {
   el.addEventListener('mouseenter', () => {
     el.classList.remove('fade-out');
