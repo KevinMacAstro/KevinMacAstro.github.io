@@ -666,3 +666,94 @@ textarea {
     align-items: center; /* optional: center buttons horizontally */
   }
 }
+
+/* Paper assistant output overrides */
+#chat-output {
+  display: none;
+  width: min(900px, 92%);
+  max-height: 650px;
+  margin: 1.5rem auto 3rem;
+  padding: 0;
+  overflow-y: auto;
+  color: white;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#chat-output .user,
+#chat-output .bot {
+  display: block;
+  width: auto;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  line-height: 1.55;
+  box-sizing: border-box;
+}
+
+#chat-output .user {
+  border-bottom: 1px solid rgba(75, 235, 255, 0.35);
+}
+
+#chat-output .bot {
+  min-height: 0;
+}
+
+#chat-output .answer-text {
+  display: block;
+  margin: 0.8rem 0 1.5rem;
+  padding: 0;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+#chat-output h3 {
+  display: block;
+  margin: 1.25rem 0 0.6rem;
+  padding: 0;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+#chat-output .source-list {
+  display: block;
+  width: auto;
+  margin: 0;
+  padding-left: 1.5rem;
+  text-align: left;
+  list-style-position: outside;
+}
+
+#chat-output .source-list li {
+  display: list-item;
+  width: auto;
+  min-height: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  text-align: left;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+#chat-output .source-list a {
+  display: inline;
+  color: #55eaff;
+  text-decoration: none;
+  text-align: left;
+}
+
+#chat-output .source-list a:hover {
+  text-decoration: underline;
+}
+
+#chat-output .source-list span {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgba(255,255,255,0.75);
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
