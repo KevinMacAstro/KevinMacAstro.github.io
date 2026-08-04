@@ -691,7 +691,8 @@ textarea {
 
 .tool-section h2 {
   margin-bottom: 1.5rem;
-  color: var(--text-color, white);
+  color: white;
+  font-weight: 600;
 }
 
 .tool-links {
@@ -812,5 +813,26 @@ textarea {
   text-decoration: underline;
 }
 
+#chat-output .assistant-status {
+  margin-top: 0.8rem;
+  white-space: normal;
+}
 
+#chat-output .status-line {
+  display: block;
+  margin: 0.2rem 0;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.9);
+}
+
+#chat-output .typing-cursor {
+  display: inline-block;
+  margin-left: 0.15rem;
+  color: #55eaff;
+  animation: assistant-cursor-blink 0.85s steps(1) infinite;
+}
+
+@keyframes assistant-cursor-blink {
+  50% { opacity: 0; }
+}
 

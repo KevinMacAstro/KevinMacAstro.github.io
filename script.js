@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('chat-form');
   const input = document.getElementById('user-input');
   const chat = document.getElementById('chat-output');
-  const submit = document.getElementById('chat-submit');
+  const submit = document.getElementById('chat-submit') || form?.querySelector('button[type="submit"]');
 
   if (!form || !input || !chat) return;
 
@@ -89,12 +89,15 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
       <div class="bot">
         <strong>Research Assistant:</strong>
-        <p>Searching my papers… The server may take up to a minute to wake.</p>
+        <div class="assistant-status" id="assistant-status"></div>
       </div>
     `;
 
     input.disabled = true;
     if (submit) submit.disabled = true;
+
+    const statusBox = document.getElementById('assistant-status');
+    const stopStatusAnimation = startStatusAnimation(statusBox);
 
     try {
       const response = await fetch(PAPER_BOT_URL, {
@@ -106,9 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'The assistant could not answer the question.');
 
-      // Remove inline [SOURCE X] citations since we show a proper source list below.
-
-      const cleanAnswer = data.answer.replace(/\s*\[(SOURCE[^\]]+)\]/g, '');
+      stopStatusAnimation();
 
       const sources = data.sources.map(source => {
         const metadata = paperMetadata[source.paper] || {
@@ -118,16 +119,15 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const pages = source.page_start === source.page_end ? `p. ${source.page_start}` : `pp. ${source.page_start}–${source.page_end}`;
-
         const sourceNumber = Number(source.label.replace(/\D/g, ''));
-        
+
         return `
-         <div class="source-entry">
-           <a href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener">
-             <strong>[${sourceNumber}] ${metadata.citation}</strong>, ${pages}
-           </a>
-           <span>${metadata.title}</span>
-         </div>
+          <div class="source-entry">
+            <a href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener">
+              <strong>[${sourceNumber}] ${metadata.citation}</strong>, ${pages}
+            </a>
+            <span>${metadata.title}</span>
+          </div>
         `;
       }).join('');
 
@@ -135,17 +135,20 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
         <div class="bot">
           <strong>Research Assistant:</strong>
-          <div class="answer-text">${renderAnswerWithCitations(data.answer,data.sources)}</div> 
+          <div class="answer-text">${renderAnswerWithCitations(data.answer, data.sources)}</div>
           <h3>Sources</h3>
-          <div class="source-list">${sources}</div> 
+          <div class="source-list">${sources}</div>
         </div>
       `;
     } catch (error) {
+      stopStatusAnimation();
       console.error('Error communicating with backend:', error);
-      chat.innerHTML += `
+
+      chat.innerHTML = `
+        <div class="user"><strong>Interlocutor:</strong> ${escapeHtml(query)}</div>
         <div class="bot">
           <strong>Research Assistant:</strong>
-          Sorry, something went wrong: ${escapeHtml(error.message)}
+          <div class="answer-text">Sorry, something went wrong: ${escapeHtml(error.message)}</div>
         </div>
       `;
     } finally {
@@ -153,48 +156,107 @@ document.addEventListener('DOMContentLoaded', function () {
       if (submit) submit.disabled = false;
       input.value = '';
       input.focus();
-      //chat.scrollTop = chat.scrollHeight;
     }
   });
 
+  function startStatusAnimation(container) {
+    let active = true;
+    let currentCursor = null;
+    const started = Date.now();
 
-function renderAnswerWithCitations(answer, sources) {
+    const messages = [
+      'Searching my papers...',
+      'Identifying the most relevant publications...',
+      'Reading the cited sections...',
+      'Synthesizing a response...'
+    ];
 
-  const sourceMap = new Map();
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  for (const source of sources) {
-    const n = parseInt(source.label.replace(/\D/g,''),10);
-    sourceMap.set(n, source);
+    async function typeLine(text, speed = 24) {
+      if (!active || !container) return;
+
+      if (currentCursor) currentCursor.remove();
+
+      const line = document.createElement('div');
+      line.className = 'status-line';
+
+      const textNode = document.createElement('span');
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      cursor.textContent = '▌';
+
+      line.appendChild(textNode);
+      line.appendChild(cursor);
+      container.appendChild(line);
+      currentCursor = cursor;
+
+      for (const character of text) {
+        if (!active) return;
+        textNode.textContent += character;
+        await sleep(speed);
+      }
+    }
+
+    (async function runStatusSequence() {
+      for (const message of messages) {
+        if (!active) return;
+        await typeLine(message);
+        await sleep(450);
+      }
+
+      const remaining = Math.max(0, 7000 - (Date.now() - started));
+      await sleep(remaining);
+
+      if (active) await typeLine('The server is waking up; this can take up to one minute.');
+    })();
+
+    return function stop() {
+      active = false;
+      if (currentCursor) currentCursor.remove();
+    };
   }
 
-  let html = escapeHtml(answer);
+  function renderAnswerWithCitations(answer, sources) {
+    const sourceMap = new Map();
 
-  html = html.replace(/\[([^\]]*SOURCE[^\]]*)\]/g, function(match, inside){
+    for (const source of sources) {
+      const number = parseInt(source.label.replace(/\D/g, ''), 10);
+      sourceMap.set(number, source);
+    }
 
-    const nums = [...inside.matchAll(/SOURCE\s+(\d+)/g)].map(x=>parseInt(x[1],10));
+    let html = escapeHtml(answer);
 
-    const links = nums.map(function(n){
+    html = html.replace(/\[([^\]]*SOURCE[^\]]*)\]/g, function (match, inside) {
+      const numbers = [...inside.matchAll(/SOURCE\s+(\d+)/g)].map(item => parseInt(item[1], 10));
 
-      const source = sourceMap.get(n);
-      if (!source) return n;
+      const links = numbers.map(function (number) {
+        const source = sourceMap.get(number);
+        if (!source) return String(number);
 
-      const meta = paperMetadata[source.paper];
+        const metadata = paperMetadata[source.paper] || {
+          citation: source.paper,
+          title: source.paper,
+          pdf: '#'
+        };
 
-      return `<a class="inline-citation" href="${meta.pdf}#page=${source.page_start}" target="_blank" title="${meta.citation}, pp. ${source.page_start}-${source.page_end}">${n}</a>`;
+        const pages = source.page_start === source.page_end ? `p. ${source.page_start}` : `pp. ${source.page_start}–${source.page_end}`;
+        const tooltip = `${metadata.citation}, ${pages}: ${metadata.title}`;
 
+        return `<a class="inline-citation" href="${metadata.pdf}#page=${source.page_start}" target="_blank" rel="noopener" title="${escapeHtml(tooltip)}">${number}</a>`;
+      });
+
+      return `[${links.join(', ')}]`;
     });
 
-    return `[${links.join(", ")}]`;
-
-  });
-
-  return html.replace(/\n/g,"<br>");
-}
-
+    return html.replace(/\n/g, '<br>');
+  }
 
   function escapeHtml(text) {
     const div = document.createElement('div');
-    div.textContent = text;
+    div.textContent = String(text ?? '');
     return div.innerHTML;
   }
 });
+
+
