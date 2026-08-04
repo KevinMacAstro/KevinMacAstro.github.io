@@ -297,6 +297,13 @@ body.front-page .content-container {
 }
 
 /* Chat Button */
+#chat-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Chat Button */
 #chat-form button {
     padding: 10px 16px;
     font-size: 16px;
@@ -305,12 +312,9 @@ body.front-page .content-container {
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 10px;
     box-shadow: 0 0 8px var(--accent-glow);
     transition: background-color 0.3s, color 0.3s;
 }
-
-
 
 /* Chat Box */
 .chat-box {
