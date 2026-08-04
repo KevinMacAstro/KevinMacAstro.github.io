@@ -693,6 +693,7 @@ textarea {
   color: white;
   text-align: left;
   box-sizing: border-box;
+  white-space: normal;
 }
 
 #chat-output .user,
@@ -750,40 +751,32 @@ textarea {
 
 #chat-output .source-entry {
   display: block !important;
-  position: static !important;
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
-  margin: 0 0 0.65rem 0 !important;
+  margin: 0 0 0.65rem !important;
   padding: 0 !important;
   line-height: 1.2 !important;
-  transform: none !important;
-}
-
-#chat-output .source-entry a {
-  display: inline !important;
-  position: static !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1.2 !important;
+  white-space: normal !important;
 }
 
 #chat-output .source-entry span {
   display: block !important;
-  position: static !important;
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0.1rem 0 0 0 !important;
+  margin: 0.1rem 0 0 !important;
   padding: 0 !important;
   line-height: 1.2 !important;
+  white-space: normal !important;
 }
 
 
-
-
-
-
-
+#chat-output .source-entry a {
+  display: inline !important;
+  position: static !important;
+  color: #55eaff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+}
 
 
 #chat-output .inline-citation {
