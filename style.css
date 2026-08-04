@@ -697,6 +697,7 @@ textarea {
 
 #chat-output .bot {
   min-height: 0;
+  padding: 1.25rem 0;
 }
 
 #chat-output .answer-text {
@@ -721,7 +722,7 @@ textarea {
   display: block;
   width: auto;
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: 1.2rem;
   text-align: left;
   list-style-position: outside;
 }
@@ -730,9 +731,9 @@ textarea {
   display: list-item;
   width: auto;
   min-height: 0;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.1rem;
   padding: 0;
-  line-height: 1.25;
+  line-height: 1.15;
   text-align: left;
   background: none;
   border: 0;
@@ -741,7 +742,6 @@ textarea {
 
 #chat-output .source-list a {
   display: inline;
-  color: #55eaff;
   color: #55eaff;
   text-decoration: none !important;
   border-bottom: none !important;
@@ -755,22 +755,23 @@ textarea {
 
 #chat-output .source-list span {
   display: block;
-  margin: 0.05rem 0 0.45rem;
+  margin: 0;
   color: rgba(255,255,255,0.75);
   text-align: left;
   font-size: 0.9rem;
-  line-height: 1.25;
+  line-height: 1.15;
 }
 
-
-.inline-citation{
-    color:#55eaff;
-    text-decoration:none;
-    font-weight:600;
+#chat-output .inline-citation {
+  color: #55eaff;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 
-.inline-citation:hover{
-    text-decoration:underline;
+#chat-output .inline-citation:hover {
+  text-decoration: underline;
 }
 
 
