@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (submit) submit.disabled = false;
       input.value = '';
       input.focus();
-      chat.scrollTop = chat.scrollHeight;
+      //chat.scrollTop = chat.scrollHeight;
     }
   });
 
