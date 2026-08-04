@@ -701,7 +701,10 @@ textarea {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+  width: auto;
+  margin: 1rem auto;
 }
+
 
 
 /* Paper assistant output overrides */
