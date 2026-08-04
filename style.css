@@ -701,7 +701,6 @@ textarea {
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  width: auto;
   margin: 1rem auto;
 }
 
