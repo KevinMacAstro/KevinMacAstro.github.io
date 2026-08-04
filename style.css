@@ -676,8 +676,8 @@ textarea {
 
 .profile-photo img {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border: 3px solid #55eaff !important;
   border-radius: 12px;
