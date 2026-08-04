@@ -710,7 +710,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 0px;
   flex-wrap: wrap;
   margin: 1rem auto;
 }
