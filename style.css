@@ -691,12 +691,16 @@ textarea {
 
 .tool-section h2 {
   margin-bottom: 1.5rem;
-  color: #55eaff;
+  color: var(--text-color, white);
 }
 
-
-
-
+.tool-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 
 
 /* Paper assistant output overrides */
