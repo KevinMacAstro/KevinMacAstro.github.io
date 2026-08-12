@@ -1193,6 +1193,26 @@ textarea {
   .tool-section h2 {
     font-size: 1.1rem;
   }
+
+@media screen and (max-width: 600px) {
+
+    /* Hide embedded PDF on phones */
+    iframe.cv-pdf {
+        display: none !important;
+    }
+
+    /* Show PDF link on phones */
+    .cv-mobile-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: min(260px, 80vw);
+        min-height: 50px;
+        margin: 20px auto;
+    }
+}
+
  
 }
 
