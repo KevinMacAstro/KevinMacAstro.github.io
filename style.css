@@ -1194,6 +1194,8 @@ textarea {
     font-size: 1.1rem;
   }
 
+}
+
 @media screen and (max-width: 600px) {
 
     /* Hide embedded PDF on phones */
@@ -1213,7 +1215,5 @@ textarea {
     }
 }
 
- 
-}
 
 
