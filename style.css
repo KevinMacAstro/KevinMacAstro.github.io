@@ -29,6 +29,19 @@ body, html {
   }
 }
 
+.orcid-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.orcid-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+
 .copy-message {
   position: fixed;
   left: 50%;
