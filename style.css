@@ -36,11 +36,11 @@ body, html {
   align-items: center;
 
   /* More horizontal separation */
-  gap: 55px;
+  gap: 100px;
 
   /* Much tighter vertical spacing */
-  margin-top: 4px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .social-icon {
@@ -48,8 +48,8 @@ body, html {
   display: inline-block;
 
   /* Smaller icons */
-  width: 46px;
-  height: 38px;
+  width: 20px;
+  height: 20px;
 }
 
 .social-icon img {
