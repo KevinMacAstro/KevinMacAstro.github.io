@@ -31,13 +31,16 @@ window.addEventListener('load', function() {
   }
 });
 
-document.getElementById('user-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    document.getElementById('chat-form').requestSubmit();
-  }
-});
+const userInput = document.getElementById('user-input');
 
+if (userInput) {
+  userInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById('chat-form').requestSubmit();
+    }
+  });
+}
 
 function copyEmail(event) {
   event.preventDefault();
