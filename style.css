@@ -29,6 +29,58 @@ body, html {
   }
 }
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.social-icon {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 48px;
+}
+
+.social-icon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* Normal icon */
+.social-icon .icon-default {
+  opacity: 1;
+}
+
+/* Hover artwork starts hidden */
+.social-icon .icon-hover {
+  opacity: 0;
+}
+
+/* Swap images on hover */
+.social-icon:hover .icon-default {
+  opacity: 0;
+}
+
+.social-icon:hover .icon-hover {
+  opacity: 1;
+}
+
+/* Slight pop on hover */
+.social-icon:hover img {
+  transform: scale(1.08);
+}
+
 
 .chat-source-note {
   margin-top: 12px;
