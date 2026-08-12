@@ -1001,6 +1001,21 @@ textarea {
 
 @media (max-width: 600px) {
 
+  .conditions-box input {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .conditions-box button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+
   .cv-pdf-container {
     width: 100%;
     max-width: 100%;
