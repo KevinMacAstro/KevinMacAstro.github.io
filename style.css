@@ -1001,6 +1001,35 @@ textarea {
 
 @media (max-width: 600px) {
 
+  .content-containerF {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+
+  #conditions-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+
+  .chat-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .eet-box,
+  .conditions-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+
   .conditions-box input {
     width: 100%;
     box-sizing: border-box;
