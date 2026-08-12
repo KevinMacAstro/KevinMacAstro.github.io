@@ -1000,6 +1000,26 @@ textarea {
 
 @media (max-width: 600px) {
 
+  .cv-pdf-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .cv-pdf {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 75vh;
+    margin: 0 auto;
+    border: none;
+    box-sizing: border-box;
+  }
+
+
   /* Give everything breathing room inside the border */
   .content-wrapper {
     padding: 25px 18px;
@@ -1104,16 +1124,7 @@ textarea {
   .tool-section h2 {
     font-size: 1.1rem;
   }
-
-  /* CV */
-  .cv-pdf-container {
-    width: 94vw;
-  }
-
-  .cv-pdf {
-    width: 100%;
-    height: 75vh;
-  }
+ 
 }
 
 
