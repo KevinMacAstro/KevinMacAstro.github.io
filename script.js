@@ -39,6 +39,33 @@ document.getElementById('user-input').addEventListener('keydown', function(e) {
 });
 
 
+function copyEmail(event) {
+  event.preventDefault();
+
+  const email = "kevin.mccarthy@ipmu.jp";
+
+  navigator.clipboard.writeText(email).then(() => {
+    const message = document.createElement("div");
+    message.className = "copy-message";
+    message.textContent = "Email copied!";
+
+    document.body.appendChild(message);
+
+    setTimeout(() => {
+      message.classList.add("show");
+    }, 10);
+
+    setTimeout(() => {
+      message.classList.remove("show");
+
+      setTimeout(() => {
+        message.remove();
+      }, 250);
+    }, 1500);
+  });
+}
+
+
 document.querySelectorAll('.glow-hover').forEach(el => {
   el.addEventListener('mouseenter', () => {
     el.classList.remove('fade-out');
