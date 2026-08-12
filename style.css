@@ -120,7 +120,7 @@ body, html {
 .cv-pdf {
     display: block;
     width: 80%;
-    max-width: 1000px;
+    width: min(900px, 90vw);
     height: 1100px;
     border: none;
 }
