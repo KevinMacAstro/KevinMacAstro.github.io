@@ -110,8 +110,20 @@ body, html {
 }
 
 
+.cv-pdf-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 
-
+.cv-pdf {
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+    height: 1100px;
+    border: none;
+}
 
 
 .chat-source-note {
