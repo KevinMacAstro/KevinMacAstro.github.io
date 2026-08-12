@@ -42,6 +42,9 @@ body, html {
   object-fit: contain;
 }
 
+.cv-mobile-link {
+  display: none;
+}
 
 .copy-message {
   position: fixed;
@@ -1044,25 +1047,46 @@ textarea {
     box-sizing: border-box;
   }
 
-
   .cv-pdf-container {
     width: 100%;
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-    overflow: hidden;
+    margin: 15px auto;
   }
 
+
   .cv-pdf {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 75vh;
-    margin: 0 auto;
-    border: none;
-    box-sizing: border-box;
+    display: none;
   }
+
+  .cv-mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(260px, 80vw);
+    min-height: 50px;
+    margin: 20px auto;
+
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+
+    background-color: #000;
+    background-image:
+      linear-gradient(
+        145deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.02)
+      ),
+      url('button_asterism5.png');
+
+    background-size: 100% 100%, 50px 50px;
+    background-repeat: no-repeat, repeat;
+
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    text-decoration: none;
+  }
+
 
 
   /* Give everything breathing room inside the border */
