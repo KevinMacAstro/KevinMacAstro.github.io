@@ -1197,4 +1197,22 @@ textarea {
 }
 
 
+@media screen and (max-width: 600px) {
+  iframe.cv-pdf {
+    display: none !important;
+  }
 
+  .cv-mobile-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: min(260px, 80vw);
+    min-height: 50px;
+    margin: 20px auto;
+  }
+
+  .cv-pdf-container {
+    width: 100%;
+    margin: 15px auto;
+  }
+}
