@@ -28,20 +28,28 @@ body, html {
     box-shadow: 0 0 16px 4px var(--accent-glow);
   }
 }
+
+
 .social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
-  margin-top: 12px;
-  margin-bottom: 24px;
+
+  /* More horizontal separation */
+  gap: 55px;
+
+  /* Much tighter vertical spacing */
+  margin-top: 4px;
+  margin-bottom: 10px;
 }
 
 .social-icon {
   position: relative;
   display: inline-block;
-  width: 64px;
-  height: 48px;
+
+  /* Smaller icons */
+  width: 46px;
+  height: 38px;
 }
 
 .social-icon img {
@@ -52,23 +60,27 @@ body, html {
   object-fit: contain;
 }
 
-/* Base image is always visible */
+/* Base image always stays visible */
 .social-icon .icon-default {
   opacity: 1;
   z-index: 1;
 }
 
-/* Hover overlay starts hidden */
+/* Second image sits directly on top */
 .social-icon .icon-hover {
   opacity: 0;
   z-index: 2;
   transition: opacity 0.18s ease;
 }
 
-/* Show overlay on top of base image */
+/* Reveal overlay without hiding original */
 .social-icon:hover .icon-hover {
   opacity: 1;
 }
+
+
+
+
 
 
 .chat-source-note {
