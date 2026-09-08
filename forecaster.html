@@ -144,7 +144,7 @@
         <div class="eet-output" id="output"></div>
         <!-- Version footer -->
         <div style="margin-top: 1em; font-size: 0.85em; color: #666; text-align: right;">
-         Version 3 (2026/02/22)
+         Version 3.1 (2026/09/08)
         </div>
       </div>
     </div>
@@ -152,7 +152,7 @@
 
 <script>
   const coef_dicts = {
-     r: {a1: 0.6590591678329323, a2: -1.477561744042403, a3: -0.6619427053987935, C: 0.8303403192934669,sig: 0.5188764736843811}, 
+     r: {a1: 0.7217030661118856, a2: -1.4259836321491604, a3: -0.8791261955106698, C: 0.8699829497415446,sig: 0.48258629127081315}, 
   };
 
   function predictEET() {
@@ -170,7 +170,7 @@
     }
 
     const log_ratio = coef.a1 * Math.log(t) + coef.a2 * Math.log(s) + coef.a3 * Math.log(a) + Math.log(coef.C);
-    const ratP = Math.exp(log_ratio);
+    const ratP = Math.exp(log_ratio) - 0.11004;
     const Texp = exp / ratP;
     const adjusted_ratio = ratP - alpha * coef.sig;
     const Texp_err = exp / adjusted_ratio;
