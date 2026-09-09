@@ -195,11 +195,11 @@
     }
 
     // Minimum exp time per visit
-    if (Texp < 300) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp < 300s ! [obs. min per visit]</div>`;
+    if (Texp < 370) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Predicted T_exp < 370s ! [obs. min per visit]</div>`;
     }
-    if (Texp_err < 300 !== (ratP - alpha * coef.sig <= 0)) {
-      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 300s ! [obs. min per visit]</div>`;
+    if (Texp_err < 370 !== (ratP - alpha * coef.sig <= 0)) {
+      warning += `<div style='color: darkorange; margin-top: 0.5em;'>⚠️  :  Adjusted T_exp < 370s ! [obs. min per visit]</div>`;
     }
 
     // Maximum exp time per visit
